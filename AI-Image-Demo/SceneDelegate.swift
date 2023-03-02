@@ -20,8 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
+        // Create the APIManager.
+        let apiManager: APIManagerProtocol = APIManager()
+        
         // Create the ViewModel.
-        let mainVM = MainViewModel()
+        let mainVM = MainViewModel(apiManager: apiManager)
         
         // Create the ViewController.
         let mainVC = MainViewController(viewModel: mainVM)

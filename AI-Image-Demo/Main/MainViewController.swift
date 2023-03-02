@@ -33,6 +33,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         testLabel.text = viewModel.demoText
+        
+        viewModel.login()
     }
     
 }

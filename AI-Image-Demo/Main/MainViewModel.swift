@@ -11,8 +11,18 @@ struct MainViewModel {
     
     // MARK: - Properties
     
+    private var apiManager: APIManagerProtocol
+    
     var demoText: String = "Hi Aitor"
     
     // MARK: - Methods
+    
+    init(apiManager: APIManagerProtocol) {
+        self.apiManager = apiManager
+    }
+    
+    func login() {
+        apiManager.login()
+    }
     
 }

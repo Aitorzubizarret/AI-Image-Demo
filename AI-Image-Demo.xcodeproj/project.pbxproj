@@ -17,6 +17,8 @@
 		1A38FA9429B1069C00E1CD22 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA9229B1069C00E1CD22 /* MainViewController.swift */; };
 		1A38FA9529B1069C00E1CD22 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A38FA9329B1069C00E1CD22 /* MainViewController.xib */; };
 		1A38FA9929B109BE00E1CD22 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA9829B109BE00E1CD22 /* MainViewModel.swift */; };
+		1A38FA9C29B10D0300E1CD22 /* APIManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA9B29B10D0300E1CD22 /* APIManagerProtocol.swift */; };
+		1A38FA9E29B10D4500E1CD22 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA9D29B10D4500E1CD22 /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		1A38FA9229B1069C00E1CD22 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1A38FA9329B1069C00E1CD22 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		1A38FA9829B109BE00E1CD22 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		1A38FA9B29B10D0300E1CD22 /* APIManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerProtocol.swift; sourceTree = "<group>"; };
+		1A38FA9D29B10D4500E1CD22 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				1A38FA6B29B102EC00E1CD22 /* Assets.xcassets */,
 				1A38FA6D29B102EC00E1CD22 /* LaunchScreen.storyboard */,
 				1A38FA7029B102EC00E1CD22 /* Info.plist */,
+				1A38FA9A29B10CF300E1CD22 /* API */,
 				1A38FA9729B1078800E1CD22 /* Main */,
 			);
 			path = "AI-Image-Demo";
@@ -136,6 +141,15 @@
 				1A38FA9829B109BE00E1CD22 /* MainViewModel.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		1A38FA9A29B10CF300E1CD22 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1A38FA9B29B10D0300E1CD22 /* APIManagerProtocol.swift */,
+				1A38FA9D29B10D4500E1CD22 /* APIManager.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,10 +283,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A38FA9E29B10D4500E1CD22 /* APIManager.swift in Sources */,
 				1A38FA9429B1069C00E1CD22 /* MainViewController.swift in Sources */,
 				1A38FA6329B102EB00E1CD22 /* AppDelegate.swift in Sources */,
 				1A38FA6529B102EB00E1CD22 /* SceneDelegate.swift in Sources */,
 				1A38FA9929B109BE00E1CD22 /* MainViewModel.swift in Sources */,
+				1A38FA9C29B10D0300E1CD22 /* APIManagerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
