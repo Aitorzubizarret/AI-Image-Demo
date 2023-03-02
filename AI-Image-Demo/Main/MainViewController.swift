@@ -8,22 +8,31 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
+    // MARK: - UI Elements
+    
+    @IBOutlet weak var testLabel: UILabel!
+    
+    // MARK: - Properties
+    
+    private var viewModel: MainViewModel
+    
+    // MARK: - Methods
+    
+    init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        testLabel.text = viewModel.demoText
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
