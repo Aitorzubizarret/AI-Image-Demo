@@ -11,7 +11,11 @@ class MainViewController: UIViewController {
     
     // MARK: - UI Elements
     
-    @IBOutlet weak var testLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var loadImageButton: UIButton!
+    @IBAction func loadImageButtonTapped(_ sender: Any) {
+        loadImageAction()
+    }
     
     // MARK: - Properties
     
@@ -32,10 +36,20 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        testLabel.text = viewModel.demoText
-        
+        setupView()
         //viewModel.getModels()
-        viewModel.getModelById("text-davinci-003")
+        //viewModel.getModelById("text-davinci-003")
+    }
+    
+    private func setupView() {
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
+    }
+    
+    private func loadImageAction() {
+        if let imageData = viewModel.imageBase64Data {
+            imageView.image = UIImage(data: imageData)
+        }
     }
     
 }
