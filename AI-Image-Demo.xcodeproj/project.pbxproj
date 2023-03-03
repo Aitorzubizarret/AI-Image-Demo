@@ -22,6 +22,9 @@
 		1A38FAA529B1FF2E00E1CD22 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FAA429B1FF2E00E1CD22 /* Model.swift */; };
 		1A38FAA729B1FF6000E1CD22 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FAA629B1FF6000E1CD22 /* Permission.swift */; };
 		1A38FAA929B2013000E1CD22 /* GetModelsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FAA829B2013000E1CD22 /* GetModelsResponse.swift */; };
+		1AAE3FD729B221E000639CE5 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FD629B221E000639CE5 /* Endpoint.swift */; };
+		1AAE3FD929B2221200639CE5 /* EndpointCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FD829B2221200639CE5 /* EndpointCases.swift */; };
+		1AAE3FDD29B2345500639CE5 /* OpenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FDC29B2345500639CE5 /* OpenAI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		1A38FAA429B1FF2E00E1CD22 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		1A38FAA629B1FF6000E1CD22 /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		1A38FAA829B2013000E1CD22 /* GetModelsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetModelsResponse.swift; sourceTree = "<group>"; };
+		1AAE3FD629B221E000639CE5 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		1AAE3FD829B2221200639CE5 /* EndpointCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointCases.swift; sourceTree = "<group>"; };
+		1AAE3FDC29B2345500639CE5 /* OpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,9 @@
 			children = (
 				1A38FA9B29B10D0300E1CD22 /* APIManagerProtocol.swift */,
 				1A38FA9D29B10D4500E1CD22 /* APIManager.swift */,
+				1AAE3FDC29B2345500639CE5 /* OpenAI.swift */,
+				1AAE3FD629B221E000639CE5 /* Endpoint.swift */,
+				1AAE3FD829B2221200639CE5 /* EndpointCases.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -301,9 +310,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A38FA9E29B10D4500E1CD22 /* APIManager.swift in Sources */,
+				1AAE3FD929B2221200639CE5 /* EndpointCases.swift in Sources */,
 				1A38FA9429B1069C00E1CD22 /* MainViewController.swift in Sources */,
+				1AAE3FDD29B2345500639CE5 /* OpenAI.swift in Sources */,
 				1A38FA6329B102EB00E1CD22 /* AppDelegate.swift in Sources */,
 				1A38FA6529B102EB00E1CD22 /* SceneDelegate.swift in Sources */,
+				1AAE3FD729B221E000639CE5 /* Endpoint.swift in Sources */,
 				1A38FAA729B1FF6000E1CD22 /* Permission.swift in Sources */,
 				1A38FA9929B109BE00E1CD22 /* MainViewModel.swift in Sources */,
 				1A38FAA929B2013000E1CD22 /* GetModelsResponse.swift in Sources */,
