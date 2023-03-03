@@ -6,9 +6,16 @@
 //
 
 import Foundation
+import Combine
 
 protocol APIManagerProtocol {
     
-    func login()
+    // MARK: - Properties
+    
+    var getModelsResponse: PassthroughSubject<GetModelsResponde, Error> { get set }
+    
+    // MARK: - Methods
+    
+    func getModels()
     
 }

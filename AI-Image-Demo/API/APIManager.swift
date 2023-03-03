@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class APIManager {
     
@@ -17,21 +18,57 @@ final class APIManager {
         return session
     }
     
-    private var loginURL: String = "https://api.openai.com/v1/models"
-    private var loginAPIKey: String = "thisIsNotMyRealAPIKeyHeHe"
+    private var OpenAI_APIKey: String = "thisIsNotMyRealAPIKeyHeHe"
     
+    private enum OpenAI_URLs: String {
+        case getModels = "https://api.openai.com/v1/models"
+    }
+    
+    var getModelsResponse = PassthroughSubject<GetModelsResponde, Error>()
+    
+    // MARK: - Methods
+    
+    private func getRequest(url: OpenAI_URLs) -> URLRequest? {
+        guard let url: URL = URL(string: url.rawValue) else { return nil }
+        
+        var request = URLRequest(url: url)
+        request.allHTTPHeaderFields = ["Authorization":"Bearer \(OpenAI_APIKey)"]
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
+        
+        return request
+    }
 }
 
 extension APIManager: APIManagerProtocol {
     
-    func login() {
-        guard let url: URL = URL(string: loginURL) else { return }
+    func getModels() {
+        guard let request = getRequest(url: .getModels) else { return }
         
-        let task = session.dataTask(with: url) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error : \(error.localizedDescription)")
+                return
+            }
             
-            print("Data \(String(describing: data))")
-            print("Response \(String(describing: response))")
-            print("Error \(String(describing: error))")
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200...299).contains(httpResponse.statusCode) else {
+                print("Invalid response received from the server")
+                return
+            }
+            
+            guard let responseData = data else {
+                print("nil data received from the server")
+                return
+            }
+            
+            do {
+                let getModelsResponse = try JSONDecoder().decode(GetModelsResponde.self, from: responseData)
+                self.getModelsResponse.send(getModelsResponse)
+            } catch let error {
+                print("Error \(error)")
+            }
+            
         }
         task.resume()
     }

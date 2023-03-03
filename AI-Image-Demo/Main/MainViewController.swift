@@ -34,7 +34,7 @@ class MainViewController: UIViewController {
         
         testLabel.text = viewModel.demoText
         
-        viewModel.login()
+        viewModel.getModels()
     }
     
 }
