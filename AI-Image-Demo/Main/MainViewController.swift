@@ -16,6 +16,10 @@ class MainViewController: UIViewController {
     @IBAction func loadImageButtonTapped(_ sender: Any) {
         loadImageAction()
     }
+    @IBOutlet weak var saveImageButton: UIButton!
+    @IBAction func saveImageButtonTapped(_ sender: Any) {
+        saveImageAction()
+    }
     
     // MARK: - Properties
     
@@ -50,6 +54,37 @@ class MainViewController: UIViewController {
         if let imageData = viewModel.imageBase64Data {
             imageView.image = UIImage(data: imageData)
         }
+    }
+    
+    private func saveImageAction() {
+        if let image = imageView.image {
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(savedImage), nil)
+        }
+    }
+    
+    @objc func savedImage(_ image: UIImage, error: Error?, context: UnsafeMutableRawPointer?) {
+        if let error = error {
+            showErrorAlert(errorDescription: error.localizedDescription)
+            return
+        }
+        
+        showSuccessAlert()
+    }
+    
+    private func showSuccessAlert() {
+        let alert = UIAlertController(title: "Success", message: "Photo saved in photo gallery", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        
+        present(alert, animated: true)
+    }
+    
+    private func showErrorAlert(errorDescription: String) {
+        let alert = UIAlertController(title: "Error", message: errorDescription, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        
+        present(alert, animated: true)
     }
     
 }

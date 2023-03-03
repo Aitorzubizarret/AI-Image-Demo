@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="imageView" destination="7yo-vJ-yGQ" id="TaT-dm-mlv"/>
                 <outlet property="loadImageButton" destination="izg-i6-JCp" id="CwJ-hy-m9O"/>
+                <outlet property="saveImageButton" destination="KcY-9F-75F" id="jnw-Mr-lgc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -39,13 +40,26 @@
                         <action selector="loadImageButtonTapped:" destination="-1" eventType="touchUpInside" id="uTq-pK-YZf"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KcY-9F-75F">
+                    <rect key="frame" x="140.66666666666666" y="394" width="112" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="2m5-jW-naL"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Save Image"/>
+                    <connections>
+                        <action selector="saveImageButtonTapped:" destination="-1" eventType="touchUpInside" id="2VU-On-j4l"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="7yo-vJ-yGQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="7ns-rY-76x"/>
                 <constraint firstItem="7yo-vJ-yGQ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="CeI-Sn-CBn"/>
+                <constraint firstItem="KcY-9F-75F" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Cpc-vx-SMb"/>
                 <constraint firstItem="izg-i6-JCp" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="HRI-fJ-bgf"/>
+                <constraint firstItem="KcY-9F-75F" firstAttribute="top" secondItem="izg-i6-JCp" secondAttribute="bottom" constant="20" id="f7T-QT-0KB"/>
                 <constraint firstItem="izg-i6-JCp" firstAttribute="top" secondItem="7yo-vJ-yGQ" secondAttribute="bottom" constant="20" id="ugt-zP-eyr"/>
             </constraints>
             <point key="canvasLocation" x="127" y="20"/>
