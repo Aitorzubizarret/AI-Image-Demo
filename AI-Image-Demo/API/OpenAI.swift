@@ -11,5 +11,7 @@ struct OpenAI {
     static var APIKey: String = "thisIsNotMyRealAPIKeyHeHe"
     
     static var baseURL: String = "https://api.openai.com"
-    static var getModelsURL: String = "/v1/models"
+    
+    static var getModelsURL:    String = "/v1/models"
+    static var getModelByIdURL: String = "/v1/models/"
 }

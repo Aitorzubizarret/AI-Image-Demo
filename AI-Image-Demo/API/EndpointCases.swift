@@ -10,10 +10,13 @@ import Foundation
 enum EndpointCases: Endpoint {
     
     case getModels
+    case getModelById(_ id: String)
     
     var httpMethod: String {
         switch self {
         case .getModels:
+            return "GET"
+        case .getModelById:
             return "GET"
         }
     }
@@ -22,6 +25,8 @@ enum EndpointCases: Endpoint {
         switch self {
         case .getModels:
             return OpenAI.baseURL
+        case .getModelById:
+            return OpenAI.baseURL
         }
     }
     
@@ -29,6 +34,8 @@ enum EndpointCases: Endpoint {
         switch self {
         case .getModels:
             return OpenAI.getModelsURL
+        case .getModelById(let id):
+            return "\(OpenAI.getModelByIdURL)\(id)"
         }
     }
     
@@ -38,12 +45,18 @@ enum EndpointCases: Endpoint {
             return ["Authorization":"Bearer \(OpenAI.APIKey)",
                     "Content-Type": "application/json",
                     "Accept": "application/json"]
+        case .getModelById:
+            return ["Authorization":"Bearer \(OpenAI.APIKey)",
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"]
         }
     }
     
     var body: [String : Any]? {
         switch self {
         case .getModels:
+            return [:]
+        case .getModelById:
             return [:]
         }
     }

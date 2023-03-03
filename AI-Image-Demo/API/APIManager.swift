@@ -19,6 +19,7 @@ final class APIManager {
     }
     
     var getModelsResponse = PassthroughSubject<GetModelsResponde, Error>()
+    var getModelByIdResponse = PassthroughSubject<Model, Error>()
     
     // MARK: - Methods
     
@@ -72,6 +73,18 @@ extension APIManager: APIManagerProtocol {
             switch result {
             case .success(let getModelsResponse):
                 self.getModelsResponse.send(getModelsResponse)
+            case .failure(let error):
+                print("Error \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func getModelById(_ id: String) {
+        let getModelsByIdEndpoint = EndpointCases.getModelById(id)
+        request(endpoint: getModelsByIdEndpoint) { (result: Result<Model, Error>) in
+            switch result {
+            case .success(let model):
+                self.getModelByIdResponse.send(model)
             case .failure(let error):
                 print("Error \(error.localizedDescription)")
             }

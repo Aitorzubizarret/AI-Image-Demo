@@ -13,9 +13,11 @@ protocol APIManagerProtocol {
     // MARK: - Properties
     
     var getModelsResponse: PassthroughSubject<GetModelsResponde, Error> { get set }
+    var getModelByIdResponse: PassthroughSubject<Model, Error> { get }
     
     // MARK: - Methods
     
     func getModels()
+    func getModelById(_ id: String)
     
 }

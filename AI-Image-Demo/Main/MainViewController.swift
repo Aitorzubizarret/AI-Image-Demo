@@ -34,7 +34,8 @@ class MainViewController: UIViewController {
         
         testLabel.text = viewModel.demoText
         
-        viewModel.getModels()
+        //viewModel.getModels()
+        viewModel.getModelById("text-davinci-003")
     }
     
 }

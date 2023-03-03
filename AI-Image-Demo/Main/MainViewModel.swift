@@ -25,6 +25,13 @@ final class MainViewModel {
             }
         }
     }
+    var model: Model? {
+        didSet {
+            guard let model = model else { return }
+            
+            print("Model \(model)")
+        }
+    }
     
     // MARK: - Methods
     
@@ -40,10 +47,20 @@ final class MainViewModel {
         } receiveValue: { [weak self] receivedGetModelsResponse in
             self?.models = receivedGetModelsResponse.data
         }.store(in: &subscribedTo)
+        
+        apiManager.getModelByIdResponse.sink { receiveCompletion in
+            print("Receive completion")
+        } receiveValue: { [weak self] receivedModel in
+            self?.model = receivedModel
+        }.store(in: &subscribedTo)
     }
     
     func getModels() {
         apiManager.getModels()
+    }
+    
+    func getModelById(_ id: String) {
+        apiManager.getModelById(id)
     }
     
 }
