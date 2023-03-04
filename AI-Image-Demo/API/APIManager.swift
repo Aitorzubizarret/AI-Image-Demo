@@ -106,14 +106,6 @@ extension APIManager: APIManagerProtocol {
     
     func createImage(description: String) {
         let createImageEndpoint = EndpointCases.createImage(description: description)
-        print("Endpoint URL : \(createImageEndpoint.url)")
-        print("Endpoint HTTP Method : \(createImageEndpoint.httpMethod)")
-        if let headers = createImageEndpoint.headers {
-            print("Endpoint Headers \(headers)")
-        }
-        if let body = createImageEndpoint.body {
-            print("Endpoint Body : \(body)")
-        }
         request(endpoint: createImageEndpoint) { (result: Result<CreateImageResponse, Error>) in
             switch result {
             case .success(let createImageResponse):
