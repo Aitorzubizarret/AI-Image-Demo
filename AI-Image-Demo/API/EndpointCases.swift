@@ -11,6 +11,7 @@ enum EndpointCases: Endpoint {
     
     case getModels
     case getModelById(_ id: String)
+    case createImage(description: String)
     
     var httpMethod: String {
         switch self {
@@ -18,6 +19,8 @@ enum EndpointCases: Endpoint {
             return "GET"
         case .getModelById:
             return "GET"
+        case .createImage:
+            return "POST"
         }
     }
     
@@ -26,6 +29,8 @@ enum EndpointCases: Endpoint {
         case .getModels:
             return OpenAI.baseURL
         case .getModelById:
+            return OpenAI.baseURL
+        case .createImage:
             return OpenAI.baseURL
         }
     }
@@ -36,6 +41,8 @@ enum EndpointCases: Endpoint {
             return OpenAI.getModelsURL
         case .getModelById(let id):
             return "\(OpenAI.getModelByIdURL)\(id)"
+        case .createImage:
+            return OpenAI.createImageURL
         }
     }
     
@@ -49,15 +56,24 @@ enum EndpointCases: Endpoint {
             return ["Authorization":"Bearer \(OpenAI.APIKey)",
                     "Content-Type": "application/json",
                     "Accept": "application/json"]
+        case .createImage:
+            return ["Authorization":"Bearer \(OpenAI.APIKey)",
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"]
         }
     }
     
     var body: [String : Any]? {
         switch self {
         case .getModels:
-            return [:]
+            return nil
         case .getModelById:
-            return [:]
+            return nil
+        case .createImage(let description):
+            return ["prompt": description,
+                    "n": 1,
+                    "size": "256x256",
+                    "response_format": "b64_json"]
         }
     }
     

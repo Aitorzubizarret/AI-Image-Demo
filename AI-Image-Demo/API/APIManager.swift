@@ -20,6 +20,9 @@ final class APIManager {
     
     var getModelsResponse = PassthroughSubject<GetModelsResponde, Error>()
     var getModelByIdResponse = PassthroughSubject<Model, Error>()
+    var getCreateImageResponse = PassthroughSubject<CreateImageResponse, Error>()
+    
+    var isError: Bool = false
     
     // MARK: - Methods
     
@@ -35,6 +38,16 @@ final class APIManager {
         endpoint.headers?.forEach({ header in
             urlRequest.setValue(header.value as? String, forHTTPHeaderField: header.key)
         })
+        
+        // Body Fields
+        if let bodyFields = endpoint.body {
+            do {
+                let jsonData: Data = try JSONSerialization.data(withJSONObject: bodyFields, options: [])
+                urlRequest.httpBody = jsonData
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
         
         let task = session.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
@@ -85,6 +98,26 @@ extension APIManager: APIManagerProtocol {
             switch result {
             case .success(let model):
                 self.getModelByIdResponse.send(model)
+            case .failure(let error):
+                print("Error \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func createImage(description: String) {
+        let createImageEndpoint = EndpointCases.createImage(description: description)
+        print("Endpoint URL : \(createImageEndpoint.url)")
+        print("Endpoint HTTP Method : \(createImageEndpoint.httpMethod)")
+        if let headers = createImageEndpoint.headers {
+            print("Endpoint Headers \(headers)")
+        }
+        if let body = createImageEndpoint.body {
+            print("Endpoint Body : \(body)")
+        }
+        request(endpoint: createImageEndpoint) { (result: Result<CreateImageResponse, Error>) in
+            switch result {
+            case .success(let createImageResponse):
+                self.getCreateImageResponse.send(createImageResponse)
             case .failure(let error):
                 print("Error \(error.localizedDescription)")
             }

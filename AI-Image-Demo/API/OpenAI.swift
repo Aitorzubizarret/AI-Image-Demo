@@ -14,4 +14,5 @@ struct OpenAI {
     
     static var getModelsURL:    String = "/v1/models"
     static var getModelByIdURL: String = "/v1/models/"
+    static var createImageURL:  String = "/v1/images/generations"
 }

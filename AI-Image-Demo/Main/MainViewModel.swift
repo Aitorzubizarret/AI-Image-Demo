@@ -15,6 +15,7 @@ final class MainViewModel {
     private var apiManager: APIManagerProtocol
     
     private var subscribedTo: [AnyCancellable] = []
+    var receivedAIImage = PassthroughSubject<AIImage, Error>()
     
     var models: [Model] = [] {
         didSet {
@@ -58,6 +59,15 @@ final class MainViewModel {
         } receiveValue: { [weak self] receivedModel in
             self?.model = receivedModel
         }.store(in: &subscribedTo)
+        
+        apiManager.getCreateImageResponse.sink { receiveCompletion in
+            print("Receive completion")
+        } receiveValue: { [weak self] receiveCreateImageResponse in
+            if !receiveCreateImageResponse.data.isEmpty,
+               let receivedArtificilaImage = receiveCreateImageResponse.data.first {
+                self?.receivedAIImage.send(receivedArtificilaImage)
+            }
+        }.store(in: &subscribedTo)
     }
     
     func getModels() {
@@ -66,6 +76,10 @@ final class MainViewModel {
     
     func getModelById(_ id: String) {
         apiManager.getModelById(id)
+    }
+    
+    func createImage(description: String) {
+        apiManager.createImage(description: description)
     }
     
 }

@@ -14,10 +14,12 @@ protocol APIManagerProtocol {
     
     var getModelsResponse: PassthroughSubject<GetModelsResponde, Error> { get set }
     var getModelByIdResponse: PassthroughSubject<Model, Error> { get }
+    var getCreateImageResponse: PassthroughSubject<CreateImageResponse, Error> { get }
     
     // MARK: - Methods
     
     func getModels()
     func getModelById(_ id: String)
+    func createImage(description: String)
     
 }
