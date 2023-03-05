@@ -29,7 +29,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create the ViewController.
         let mainVC = MainViewController(viewModel: mainVM)
         
-        window?.rootViewController = mainVC
+        // Create the Navigation Controller.
+        let navController = UINavigationController()
+        navController.viewControllers = [mainVC]
+        
+        window?.rootViewController = navController
         window?.makeKeyAndVisible()
     }
 

@@ -47,7 +47,11 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "AI Image Creator"
+        
         setupView()
+        setupNavController()
+        
         setupTextView()
         
         subscriptions()
@@ -64,6 +68,18 @@ class MainViewController: UIViewController {
         view.addGestureRecognizer(tapToHide)
         
         hideActivityIndicator()
+    }
+    
+    private func setupNavController() {
+        let createNewAIImageBarButton = UIBarButtonItem(image: UIImage(systemName: "plus"),
+                                                        style: .plain,
+                                                        target: self,
+                                                        action: #selector(createAIImage))
+        self.navigationItem.rightBarButtonItems = [createNewAIImageBarButton]
+    }
+    
+    @objc private func createAIImage() {
+        print("Button pressed")
     }
     
     private func setupTextView() {
