@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     // MARK: - UI Elements
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var createImageButton: UIButton!
     @IBAction func createImageButtonTapped(_ sender: Any) {
@@ -61,6 +62,8 @@ class MainViewController: UIViewController {
         
         let tapToHide = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapToHide)
+        
+        hideActivityIndicator()
     }
     
     private func setupTextView() {
@@ -72,15 +75,35 @@ class MainViewController: UIViewController {
     
     private func subscriptions() {
         viewModel.receivedAIImage.sink { receiveCompletion in
-            print("Received completion")
+            switch receiveCompletion {
+            case.failure(let error):
+                DispatchQueue.main.async {
+                    self.hideActivityIndicator()
+                    self.enableCreateImageButton()
+                    self.showErrorAlert(errorDescription: "\(error.localizedDescription)")
+                }
+            case .finished:
+                print("")
+            }
         } receiveValue: { [weak self] receivedArtificialImage in
             self?.displayImage(data: receivedArtificialImage.b64_json)
         }.store(in: &subscribedTo)
-
     }
     
     @objc private func hideKeyboard() {
         view.endEditing(true)
+    }
+    
+    private func cleanImageView() {
+        imageView.image = UIImage()
+    }
+    
+    private func disableCreateImageButton() {
+        createImageButton.isEnabled = false
+    }
+    
+    private func enableCreateImageButton() {
+        createImageButton.isEnabled = true
     }
     
 }
@@ -93,6 +116,10 @@ extension MainViewController {
         if descriptionTextView.text != descriptionTextViewPlaceholderText && !descriptionTextView.text.isEmpty,
            let descriptionText = descriptionTextView.text {
             viewModel.createImage(description: descriptionText)
+            
+            cleanImageView()
+            showActivityIndicator()
+            disableCreateImageButton()
         } else {
             showErrorDescriptionEmpty()
         }
@@ -100,6 +127,9 @@ extension MainViewController {
     
     private func displayImage(data: Data) {
         DispatchQueue.main.async {
+            self.hideActivityIndicator()
+            self.enableCreateImageButton()
+            
             self.imageView.image = UIImage(data: data)
         }
     }
@@ -172,6 +202,22 @@ extension MainViewController: UITextViewDelegate {
             descriptionTextView.text = descriptionTextViewPlaceholderText
             descriptionTextView.textColor = UIColor.lightGray
         }
+    }
+    
+}
+
+// MARK: - UIActivityIndicator
+
+extension MainViewController {
+    
+    private func showActivityIndicator() {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
+    
+    private func hideActivityIndicator() {
+        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
     }
     
 }

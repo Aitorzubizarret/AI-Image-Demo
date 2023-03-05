@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="AI_Image_Demo" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="3ZD-Pn-67Z" id="OM7-Sl-8uk"/>
                 <outlet property="createImageButton" destination="izg-i6-JCp" id="w0Q-Ka-mvU"/>
                 <outlet property="descriptionTextView" destination="DWF-cX-3ya" id="CJw-nw-9wO"/>
                 <outlet property="imageView" destination="7yo-vJ-yGQ" id="TaT-dm-mlv"/>
@@ -30,6 +31,13 @@
                         <constraint firstAttribute="width" secondItem="7yo-vJ-yGQ" secondAttribute="height" multiplier="1:1" id="iRR-fD-ITP"/>
                     </constraints>
                 </imageView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="3ZD-Pn-67Z">
+                    <rect key="frame" x="186.66666666666666" y="189" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="QJD-b0-Yz8"/>
+                        <constraint firstAttribute="width" constant="20" id="XQL-SQ-GJg"/>
+                    </constraints>
+                </activityIndicatorView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Describe the image ..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DWF-cX-3ya">
                     <rect key="frame" x="76.666666666666686" y="339" width="240" height="128"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -66,11 +74,13 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="3ZD-Pn-67Z" firstAttribute="centerY" secondItem="7yo-vJ-yGQ" secondAttribute="centerY" id="3IV-pd-jan"/>
                 <constraint firstItem="7yo-vJ-yGQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="7ns-rY-76x"/>
                 <constraint firstItem="7yo-vJ-yGQ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="CeI-Sn-CBn"/>
                 <constraint firstItem="KcY-9F-75F" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Cpc-vx-SMb"/>
                 <constraint firstItem="DWF-cX-3ya" firstAttribute="leading" secondItem="7yo-vJ-yGQ" secondAttribute="leading" id="HLk-Eh-1Yv"/>
                 <constraint firstItem="izg-i6-JCp" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="HRI-fJ-bgf"/>
+                <constraint firstItem="3ZD-Pn-67Z" firstAttribute="centerX" secondItem="7yo-vJ-yGQ" secondAttribute="centerX" id="IEv-FV-T3B"/>
                 <constraint firstItem="izg-i6-JCp" firstAttribute="top" secondItem="DWF-cX-3ya" secondAttribute="bottom" constant="20" id="P8V-aO-Mww"/>
                 <constraint firstItem="DWF-cX-3ya" firstAttribute="trailing" secondItem="7yo-vJ-yGQ" secondAttribute="trailing" id="cNw-11-wKd"/>
                 <constraint firstItem="KcY-9F-75F" firstAttribute="top" secondItem="izg-i6-JCp" secondAttribute="bottom" constant="20" id="f7T-QT-0KB"/>

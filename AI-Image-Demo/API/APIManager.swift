@@ -50,19 +50,36 @@ final class APIManager {
         }
         
         let task = session.dataTask(with: urlRequest) { data, response, error in
+            
+            // Error
             if let error = error {
-                print("Error : \(error.localizedDescription)")
+                print("Error APIManager Request : \(error.localizedDescription)")
+                completion(.failure(CustomError.unknown(description: "\(error.localizedDescription)")))
                 return
             }
             
-            guard let httpResponse = response as? HTTPURLResponse,
-                  (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response received from the server")
+            // Response
+            guard let httpResponse = response as? HTTPURLResponse else { return }
+            
+            if !(200...299).contains(httpResponse.statusCode) {
+                let errorCode: String = "\(httpResponse.statusCode)"
+                var errorMessage: String = ""
+                
+                if let responseData = data {
+                    if let response = try? JSONDecoder().decode(ErrorResponse.self, from: responseData) {
+                        errorMessage = response.error.message
+                    }
+                }
+                
+                print("Error APIManager Request : Invalid response received from the server. Status Code: \(errorCode) - Error message: \(errorMessage)")
+                completion(.failure(CustomError.unknown(description: "Invalid response received from the server. Status Code: \(errorCode) - Error message: \(errorMessage)")))
                 return
             }
             
+            // Data
             guard let responseData = data else {
-                print("nil data received from the server")
+                print("Error APIManager Request : nil data received from the server")
+                completion(.failure(CustomError.unknown(description: "nil data received from the server")))
                 return
             }
             
@@ -111,7 +128,7 @@ extension APIManager: APIManagerProtocol {
             case .success(let createImageResponse):
                 self.getCreateImageResponse.send(createImageResponse)
             case .failure(let error):
-                print("Error \(error.localizedDescription)")
+                self.getCreateImageResponse.send(completion: .failure(CustomError.unknown(description: "\(error.localizedDescription)")))
             }
         }
     }

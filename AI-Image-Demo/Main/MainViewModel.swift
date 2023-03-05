@@ -61,7 +61,12 @@ final class MainViewModel {
         }.store(in: &subscribedTo)
         
         apiManager.getCreateImageResponse.sink { receiveCompletion in
-            print("Receive completion")
+            switch receiveCompletion {
+            case .failure(let error):
+                self.receivedAIImage.send(completion: .failure(CustomError.unknown(description: "\(error.localizedDescription)")))
+            case .finished:
+                print("")
+            }
         } receiveValue: { [weak self] receiveCreateImageResponse in
             if !receiveCreateImageResponse.data.isEmpty,
                let receivedArtificilaImage = receiveCreateImageResponse.data.first {
