@@ -12,18 +12,21 @@ class MainViewController: UIViewController {
     
     // MARK: - UI Elements
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var saveImageButton: UIButton!
-    @IBAction func saveImageButtonTapped(_ sender: Any) {
-        saveImageAction()
-    }
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
     
     private var viewModel: MainViewModel
     
     private var subscribedTo: [AnyCancellable] = []
+    
+    private var petitions: [Petition] = [] {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
+            }
+        }
+    }
     
     private var descriptionTextViewPlaceholderText = "Describe the image you want to AI to create."
     
@@ -44,17 +47,19 @@ class MainViewController: UIViewController {
         
         title = "AI Image Creator"
         
-        setupView()
         setupNavController()
+        setupTableView()
         
         subscriptions()
     }
     
-    private func setupView() {
-        imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        hideActivityIndicator()
+        // Register the cells.
+        let aiImageCell = UINib(nibName: "AIImageTableViewCell", bundle: nil)
+        tableView.register(aiImageCell, forCellReuseIdentifier: "AIImageTableViewCell")
     }
     
     private func setupNavController() {
@@ -81,34 +86,28 @@ class MainViewController: UIViewController {
         viewModel.receivedAIImage.sink { receiveCompletion in
             switch receiveCompletion {
             case.failure(let error):
-                DispatchQueue.main.async {
-                    self.hideActivityIndicator()
-                    self.showErrorAlert(errorDescription: "\(error.localizedDescription)")
+                if let lastPetition = self.petitions.last {
+                    lastPetition.errorDescription = error.localizedDescription
+                    
+                    DispatchQueue.main.async { [weak self] in
+                        self?.tableView.reloadData()
+                    }
                 }
+//                DispatchQueue.main.async {
+//                    self.showErrorAlert(errorDescription: "\(error.localizedDescription)")
+//                }
             case .finished:
                 print("")
             }
         } receiveValue: { [weak self] receivedArtificialImage in
-            self?.displayImage(data: receivedArtificialImage.b64_json)
+            if let lastPetition = self?.petitions.last {
+                lastPetition.imageData = receivedArtificialImage.b64_json
+                
+                DispatchQueue.main.async { [weak self] in
+                    self?.tableView.reloadData()
+                }
+            }
         }.store(in: &subscribedTo)
-    }
-    
-    private func cleanImageView() {
-        imageView.image = UIImage()
-    }
-    
-}
-
-// MARK: - Create and display Image
-
-extension MainViewController {
-    
-    private func displayImage(data: Data) {
-        DispatchQueue.main.async {
-            self.hideActivityIndicator()
-            
-            self.imageView.image = UIImage(data: data)
-        }
     }
     
 }
@@ -118,9 +117,9 @@ extension MainViewController {
 extension MainViewController {
     
     private func saveImageAction() {
-        if let image = imageView.image {
-            UIImageWriteToSavedPhotosAlbum(image, self, #selector(savedImage), nil)
-        }
+//        if let image = imageView.image {
+//            UIImageWriteToSavedPhotosAlbum(image, self, #selector(savedImage), nil)
+//        }
     }
     
     @objc func savedImage(_ image: UIImage, error: Error?, context: UnsafeMutableRawPointer?) {
@@ -164,29 +163,54 @@ extension MainViewController {
     
 }
 
-// MARK: - UIActivityIndicator
+// MARK: - CreateImageForm Delegate
 
-extension MainViewController {
+extension MainViewController: CreateImageFormDelegate {
     
-    internal func showActivityIndicator() {
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-    }
-    
-    private func hideActivityIndicator() {
-        activityIndicator.isHidden = true
-        activityIndicator.stopAnimating()
+    func createPetition(description: String) {
+        let newPetition = Petition(description: description)
+        petitions.append(newPetition)
     }
     
 }
 
-// MARK: -
+// MARK: - UITableView Delegate
 
-extension MainViewController: CreateImageFormDelegate {
+extension MainViewController: UITableViewDelegate {}
+
+// MARK: - UITableView Data Source
+
+extension MainViewController: UITableViewDataSource {
     
-    func showActivityIndicatorOn() {
-        cleanImageView()
-        showActivityIndicator()
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return petitions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AIImageTableViewCell", for: indexPath) as! AIImageTableViewCell
+        
+        let petition = petitions[indexPath.row]
+        cell.descriptionText = petition.getDescription()
+        
+        if petition.imageData == nil && petition.errorDescription == nil {
+            cell.isWaiting = true
+        } else {
+            cell.isWaiting = false
+        }
+        
+        if let imageData = petition.imageData {
+            cell.aiImageData = imageData
+        }
+        
+        if let errorText = petition.errorDescription {
+            cell.errorText = errorText
+        }
+        
+        return cell
     }
     
 }

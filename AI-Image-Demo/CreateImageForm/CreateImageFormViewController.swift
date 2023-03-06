@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CreateImageFormDelegate {
-    func showActivityIndicatorOn()
+    func createPetition(description: String)
 }
 
 class CreateImageFormViewController: UIViewController {
@@ -97,7 +97,7 @@ class CreateImageFormViewController: UIViewController {
             viewModel.createImage(description: descriptionText)
             
             dismiss(animated: true) {
-                self.delegate?.showActivityIndicatorOn()
+                self.delegate?.createPetition(description: self.descriptionTextView.text)
             }
         }
     }

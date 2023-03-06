@@ -11,9 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="AI_Image_Demo" customModuleProvider="target">
             <connections>
-                <outlet property="activityIndicator" destination="3ZD-Pn-67Z" id="OM7-Sl-8uk"/>
-                <outlet property="imageView" destination="7yo-vJ-yGQ" id="TaT-dm-mlv"/>
-                <outlet property="saveImageButton" destination="KcY-9F-75F" id="jnw-Mr-lgc"/>
+                <outlet property="tableView" destination="WpX-cj-lvr" id="3ye-d8-uVo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,41 +20,18 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7yo-vJ-yGQ">
-                    <rect key="frame" x="76.666666666666686" y="79" width="240" height="240"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="240" id="bYx-Qa-tH6"/>
-                        <constraint firstAttribute="width" secondItem="7yo-vJ-yGQ" secondAttribute="height" multiplier="1:1" id="iRR-fD-ITP"/>
-                    </constraints>
-                </imageView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="3ZD-Pn-67Z">
-                    <rect key="frame" x="186.66666666666666" y="189" width="20" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="20" id="QJD-b0-Yz8"/>
-                        <constraint firstAttribute="width" constant="20" id="XQL-SQ-GJg"/>
-                    </constraints>
-                </activityIndicatorView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KcY-9F-75F">
-                    <rect key="frame" x="140.66666666666666" y="339" width="112" height="35"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="35" id="2m5-jW-naL"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Save Image"/>
-                    <connections>
-                        <action selector="saveImageButtonTapped:" destination="-1" eventType="touchUpInside" id="2VU-On-j4l"/>
-                    </connections>
-                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="WpX-cj-lvr">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="3ZD-Pn-67Z" firstAttribute="centerY" secondItem="7yo-vJ-yGQ" secondAttribute="centerY" id="3IV-pd-jan"/>
-                <constraint firstItem="7yo-vJ-yGQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="7ns-rY-76x"/>
-                <constraint firstItem="7yo-vJ-yGQ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="CeI-Sn-CBn"/>
-                <constraint firstItem="KcY-9F-75F" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Cpc-vx-SMb"/>
-                <constraint firstItem="3ZD-Pn-67Z" firstAttribute="centerX" secondItem="7yo-vJ-yGQ" secondAttribute="centerX" id="IEv-FV-T3B"/>
-                <constraint firstItem="KcY-9F-75F" firstAttribute="top" secondItem="7yo-vJ-yGQ" secondAttribute="bottom" constant="20" id="woP-hp-wD6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WpX-cj-lvr" secondAttribute="trailing" id="0jY-5d-RcQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="WpX-cj-lvr" secondAttribute="bottom" id="Bkf-8X-HDn"/>
+                <constraint firstItem="WpX-cj-lvr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="HSp-ea-LKE"/>
+                <constraint firstItem="WpX-cj-lvr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="e8z-Sp-zHo"/>
             </constraints>
             <point key="canvasLocation" x="127" y="20"/>
         </view>
