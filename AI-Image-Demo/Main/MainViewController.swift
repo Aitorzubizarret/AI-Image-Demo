@@ -14,11 +14,6 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var createImageButton: UIButton!
-    @IBAction func createImageButtonTapped(_ sender: Any) {
-        createImageAction()
-    }
     @IBOutlet weak var saveImageButton: UIButton!
     @IBAction func saveImageButtonTapped(_ sender: Any) {
         saveImageAction()
@@ -52,20 +47,12 @@ class MainViewController: UIViewController {
         setupView()
         setupNavController()
         
-        setupTextView()
-        
         subscriptions()
     }
     
     private func setupView() {
         imageView.layer.borderWidth = 1
         imageView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
-        
-        descriptionTextView.layer.borderWidth = 1
-        descriptionTextView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
-        
-        let tapToHide = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        view.addGestureRecognizer(tapToHide)
         
         hideActivityIndicator()
     }
@@ -74,19 +61,20 @@ class MainViewController: UIViewController {
         let createNewAIImageBarButton = UIBarButtonItem(image: UIImage(systemName: "plus"),
                                                         style: .plain,
                                                         target: self,
-                                                        action: #selector(createAIImage))
+                                                        action: #selector(openCreateImageForm))
         self.navigationItem.rightBarButtonItems = [createNewAIImageBarButton]
     }
     
-    @objc private func createAIImage() {
-        print("Button pressed")
-    }
-    
-    private func setupTextView() {
-        descriptionTextView.text = descriptionTextViewPlaceholderText
-        descriptionTextView.textColor = UIColor.lightGray
+    @objc private func openCreateImageForm() {
+        // TODO: Create a Coordinator.
         
-        descriptionTextView.delegate = self
+        // ViewController.
+        let createImageFormVC = CreateImageFormViewController(viewModel: viewModel)
+        createImageFormVC.delegate = self
+        
+        // NavController.
+        let navController = UINavigationController(rootViewController: createImageFormVC)
+        present(navController, animated: true)
     }
     
     private func subscriptions() {
@@ -95,7 +83,6 @@ class MainViewController: UIViewController {
             case.failure(let error):
                 DispatchQueue.main.async {
                     self.hideActivityIndicator()
-                    self.enableCreateImageButton()
                     self.showErrorAlert(errorDescription: "\(error.localizedDescription)")
                 }
             case .finished:
@@ -106,20 +93,8 @@ class MainViewController: UIViewController {
         }.store(in: &subscribedTo)
     }
     
-    @objc private func hideKeyboard() {
-        view.endEditing(true)
-    }
-    
     private func cleanImageView() {
         imageView.image = UIImage()
-    }
-    
-    private func disableCreateImageButton() {
-        createImageButton.isEnabled = false
-    }
-    
-    private func enableCreateImageButton() {
-        createImageButton.isEnabled = true
     }
     
 }
@@ -128,23 +103,9 @@ class MainViewController: UIViewController {
 
 extension MainViewController {
     
-    private func createImageAction() {
-        if descriptionTextView.text != descriptionTextViewPlaceholderText && !descriptionTextView.text.isEmpty,
-           let descriptionText = descriptionTextView.text {
-            viewModel.createImage(description: descriptionText)
-            
-            cleanImageView()
-            showActivityIndicator()
-            disableCreateImageButton()
-        } else {
-            showErrorDescriptionEmpty()
-        }
-    }
-    
     private func displayImage(data: Data) {
         DispatchQueue.main.async {
             self.hideActivityIndicator()
-            self.enableCreateImageButton()
             
             self.imageView.image = UIImage(data: data)
         }
@@ -203,30 +164,11 @@ extension MainViewController {
     
 }
 
-// MARK: - UITextView Delegate
-
-extension MainViewController: UITextViewDelegate {
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == descriptionTextViewPlaceholderText {
-            textView.text = ""
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            descriptionTextView.text = descriptionTextViewPlaceholderText
-            descriptionTextView.textColor = UIColor.lightGray
-        }
-    }
-    
-}
-
 // MARK: - UIActivityIndicator
 
 extension MainViewController {
     
-    private func showActivityIndicator() {
+    internal func showActivityIndicator() {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
     }
@@ -234,6 +176,17 @@ extension MainViewController {
     private func hideActivityIndicator() {
         activityIndicator.isHidden = true
         activityIndicator.stopAnimating()
+    }
+    
+}
+
+// MARK: -
+
+extension MainViewController: CreateImageFormDelegate {
+    
+    func showActivityIndicatorOn() {
+        cleanImageView()
+        showActivityIndicator()
     }
     
 }

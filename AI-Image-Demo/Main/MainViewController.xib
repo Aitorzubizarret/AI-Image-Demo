@@ -12,8 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="AI_Image_Demo" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="3ZD-Pn-67Z" id="OM7-Sl-8uk"/>
-                <outlet property="createImageButton" destination="izg-i6-JCp" id="w0Q-Ka-mvU"/>
-                <outlet property="descriptionTextView" destination="DWF-cX-3ya" id="CJw-nw-9wO"/>
                 <outlet property="imageView" destination="7yo-vJ-yGQ" id="TaT-dm-mlv"/>
                 <outlet property="saveImageButton" destination="KcY-9F-75F" id="jnw-Mr-lgc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -38,29 +36,8 @@
                         <constraint firstAttribute="width" constant="20" id="XQL-SQ-GJg"/>
                     </constraints>
                 </activityIndicatorView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Describe the image ..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DWF-cX-3ya">
-                    <rect key="frame" x="76.666666666666686" y="339" width="240" height="128"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="128" id="OJg-Al-VE9"/>
-                    </constraints>
-                    <color key="textColor" systemColor="labelColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izg-i6-JCp">
-                    <rect key="frame" x="133.66666666666666" y="487" width="125.66666666666666" height="35"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="35" id="JmX-bB-KlC"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Create Image"/>
-                    <connections>
-                        <action selector="createImageButtonTapped:" destination="-1" eventType="touchUpInside" id="OG5-bG-ebw"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KcY-9F-75F">
-                    <rect key="frame" x="140.66666666666666" y="542" width="112" height="35"/>
+                    <rect key="frame" x="140.66666666666666" y="339" width="112" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="2m5-jW-naL"/>
                     </constraints>
@@ -78,21 +55,13 @@
                 <constraint firstItem="7yo-vJ-yGQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="7ns-rY-76x"/>
                 <constraint firstItem="7yo-vJ-yGQ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="CeI-Sn-CBn"/>
                 <constraint firstItem="KcY-9F-75F" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Cpc-vx-SMb"/>
-                <constraint firstItem="DWF-cX-3ya" firstAttribute="leading" secondItem="7yo-vJ-yGQ" secondAttribute="leading" id="HLk-Eh-1Yv"/>
-                <constraint firstItem="izg-i6-JCp" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="HRI-fJ-bgf"/>
                 <constraint firstItem="3ZD-Pn-67Z" firstAttribute="centerX" secondItem="7yo-vJ-yGQ" secondAttribute="centerX" id="IEv-FV-T3B"/>
-                <constraint firstItem="izg-i6-JCp" firstAttribute="top" secondItem="DWF-cX-3ya" secondAttribute="bottom" constant="20" id="P8V-aO-Mww"/>
-                <constraint firstItem="DWF-cX-3ya" firstAttribute="trailing" secondItem="7yo-vJ-yGQ" secondAttribute="trailing" id="cNw-11-wKd"/>
-                <constraint firstItem="KcY-9F-75F" firstAttribute="top" secondItem="izg-i6-JCp" secondAttribute="bottom" constant="20" id="f7T-QT-0KB"/>
-                <constraint firstItem="DWF-cX-3ya" firstAttribute="top" secondItem="7yo-vJ-yGQ" secondAttribute="bottom" constant="20" id="x1w-t4-eFG"/>
+                <constraint firstItem="KcY-9F-75F" firstAttribute="top" secondItem="7yo-vJ-yGQ" secondAttribute="bottom" constant="20" id="woP-hp-wD6"/>
             </constraints>
             <point key="canvasLocation" x="127" y="20"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

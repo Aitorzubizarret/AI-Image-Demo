@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A161F0829B5EDBA00AF7177 /* CreateImageFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A161F0629B5EDBA00AF7177 /* CreateImageFormViewController.swift */; };
+		1A161F0929B5EDBA00AF7177 /* CreateImageFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A161F0729B5EDBA00AF7177 /* CreateImageFormViewController.xib */; };
 		1A38FA6329B102EB00E1CD22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA6229B102EB00E1CD22 /* AppDelegate.swift */; };
 		1A38FA6529B102EB00E1CD22 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA6429B102EB00E1CD22 /* SceneDelegate.swift */; };
 		1A38FA6C29B102EC00E1CD22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A38FA6B29B102EC00E1CD22 /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A161F0629B5EDBA00AF7177 /* CreateImageFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageFormViewController.swift; sourceTree = "<group>"; };
+		1A161F0729B5EDBA00AF7177 /* CreateImageFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateImageFormViewController.xib; sourceTree = "<group>"; };
 		1A38FA5F29B102EB00E1CD22 /* AI-Image-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI-Image-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A38FA6229B102EB00E1CD22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A38FA6429B102EB00E1CD22 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A161F0529B5ED9500AF7177 /* CreateImageForm */ = {
+			isa = PBXGroup;
+			children = (
+				1A161F0629B5EDBA00AF7177 /* CreateImageFormViewController.swift */,
+				1A161F0729B5EDBA00AF7177 /* CreateImageFormViewController.xib */,
+			);
+			path = CreateImageForm;
+			sourceTree = "<group>";
+		};
 		1A38FA5629B102EB00E1CD22 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +148,7 @@
 				1A38FA7029B102EC00E1CD22 /* Info.plist */,
 				1A38FA9A29B10CF300E1CD22 /* API */,
 				1A38FA9729B1078800E1CD22 /* Main */,
+				1A161F0529B5ED9500AF7177 /* CreateImageForm */,
 			);
 			path = "AI-Image-Demo";
 			sourceTree = "<group>";
@@ -297,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A161F0929B5EDBA00AF7177 /* CreateImageFormViewController.xib in Resources */,
 				1A38FA6F29B102EC00E1CD22 /* LaunchScreen.storyboard in Resources */,
 				1A38FA9529B1069C00E1CD22 /* MainViewController.xib in Resources */,
 				1A38FA6C29B102EC00E1CD22 /* Assets.xcassets in Resources */,
@@ -330,6 +345,7 @@
 				1A38FA9429B1069C00E1CD22 /* MainViewController.swift in Sources */,
 				1AAE3FDD29B2345500639CE5 /* OpenAI.swift in Sources */,
 				1AAE3FE729B4B45500639CE5 /* CustomError.swift in Sources */,
+				1A161F0829B5EDBA00AF7177 /* CreateImageFormViewController.swift in Sources */,
 				1A38FA6329B102EB00E1CD22 /* AppDelegate.swift in Sources */,
 				1AAE3FE929B4E1EF00639CE5 /* ErrorResponse.swift in Sources */,
 				1A38FA6529B102EB00E1CD22 /* SceneDelegate.swift in Sources */,
