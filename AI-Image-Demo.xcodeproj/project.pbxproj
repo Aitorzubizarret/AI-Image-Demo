@@ -14,6 +14,9 @@
 		1A161F1329B640B500AF7177 /* Petition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A161F1229B640B500AF7177 /* Petition.swift */; };
 		1A161F1629B67CEB00AF7177 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1A161F1529B67CEB00AF7177 /* Realm */; };
 		1A161F1829B67CEB00AF7177 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A161F1729B67CEB00AF7177 /* RealmSwift */; };
+		1A161F1B29B6A6C700AF7177 /* RealmManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A161F1A29B6A6C700AF7177 /* RealmManagerProtocol.swift */; };
+		1A161F1D29B6A6D100AF7177 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A161F1C29B6A6D100AF7177 /* RealmManager.swift */; };
+		1A161F2029B6ABE900AF7177 /* Results-Exxtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A161F1F29B6ABE900AF7177 /* Results-Exxtension.swift */; };
 		1A38FA6329B102EB00E1CD22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA6229B102EB00E1CD22 /* AppDelegate.swift */; };
 		1A38FA6529B102EB00E1CD22 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA6429B102EB00E1CD22 /* SceneDelegate.swift */; };
 		1A38FA6C29B102EC00E1CD22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A38FA6B29B102EC00E1CD22 /* Assets.xcassets */; };
@@ -62,6 +65,9 @@
 		1A161F0E29B6346400AF7177 /* AIImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIImageTableViewCell.swift; sourceTree = "<group>"; };
 		1A161F0F29B6346400AF7177 /* AIImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AIImageTableViewCell.xib; sourceTree = "<group>"; };
 		1A161F1229B640B500AF7177 /* Petition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petition.swift; sourceTree = "<group>"; };
+		1A161F1A29B6A6C700AF7177 /* RealmManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerProtocol.swift; sourceTree = "<group>"; };
+		1A161F1C29B6A6D100AF7177 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		1A161F1F29B6ABE900AF7177 /* Results-Exxtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results-Exxtension.swift"; sourceTree = "<group>"; };
 		1A38FA5F29B102EB00E1CD22 /* AI-Image-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI-Image-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A38FA6229B102EB00E1CD22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A38FA6429B102EB00E1CD22 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +150,23 @@
 			path = AIImage;
 			sourceTree = "<group>";
 		};
+		1A161F1929B6A68900AF7177 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				1A161F1A29B6A6C700AF7177 /* RealmManagerProtocol.swift */,
+				1A161F1C29B6A6D100AF7177 /* RealmManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		1A161F1E29B6ABD300AF7177 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1A161F1F29B6ABE900AF7177 /* Results-Exxtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1A38FA5629B102EB00E1CD22 = {
 			isa = PBXGroup;
 			children = (
@@ -167,16 +190,18 @@
 		1A38FA6129B102EB00E1CD22 /* AI-Image-Demo */ = {
 			isa = PBXGroup;
 			children = (
-				1A38FAA129B16A5C00E1CD22 /* Model */,
 				1A38FA6229B102EB00E1CD22 /* AppDelegate.swift */,
 				1A38FA6429B102EB00E1CD22 /* SceneDelegate.swift */,
 				1A38FA6B29B102EC00E1CD22 /* Assets.xcassets */,
 				1A38FA6D29B102EC00E1CD22 /* LaunchScreen.storyboard */,
 				1A38FA7029B102EC00E1CD22 /* Info.plist */,
+				1A38FAA129B16A5C00E1CD22 /* Model */,
+				1A161F1929B6A68900AF7177 /* Manager */,
 				1A38FA9A29B10CF300E1CD22 /* API */,
 				1A38FA9729B1078800E1CD22 /* Main */,
 				1A161F0529B5ED9500AF7177 /* CreateImageForm */,
 				1A161F0C29B633CF00AF7177 /* Cells */,
+				1A161F1E29B6ABD300AF7177 /* Extensions */,
 			);
 			path = "AI-Image-Demo";
 			sourceTree = "<group>";
@@ -385,12 +410,15 @@
 				1AAE3FDD29B2345500639CE5 /* OpenAI.swift in Sources */,
 				1AAE3FE729B4B45500639CE5 /* CustomError.swift in Sources */,
 				1A161F0829B5EDBA00AF7177 /* CreateImageFormViewController.swift in Sources */,
+				1A161F2029B6ABE900AF7177 /* Results-Exxtension.swift in Sources */,
 				1A38FA6329B102EB00E1CD22 /* AppDelegate.swift in Sources */,
 				1AAE3FE929B4E1EF00639CE5 /* ErrorResponse.swift in Sources */,
 				1A38FA6529B102EB00E1CD22 /* SceneDelegate.swift in Sources */,
 				1AAE3FD729B221E000639CE5 /* Endpoint.swift in Sources */,
+				1A161F1D29B6A6D100AF7177 /* RealmManager.swift in Sources */,
 				1A38FAA729B1FF6000E1CD22 /* Permission.swift in Sources */,
 				1A38FA9929B109BE00E1CD22 /* MainViewModel.swift in Sources */,
+				1A161F1B29B6A6C700AF7177 /* RealmManagerProtocol.swift in Sources */,
 				1A38FAA929B2013000E1CD22 /* GetModelsResponse.swift in Sources */,
 				1AAE3FE329B284AA00639CE5 /* AIImage.swift in Sources */,
 				1A38FA9C29B10D0300E1CD22 /* APIManagerProtocol.swift in Sources */,

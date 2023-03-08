@@ -51,6 +51,8 @@ class MainViewController: UIViewController {
         setupTableView()
         
         subscriptions()
+        
+        viewModel.getPetitions()
     }
     
     private func setupTableView() {
@@ -75,7 +77,6 @@ class MainViewController: UIViewController {
         
         // ViewController.
         let createImageFormVC = CreateImageFormViewController(viewModel: viewModel)
-        createImageFormVC.delegate = self
         
         // NavController.
         let navController = UINavigationController(rootViewController: createImageFormVC)
@@ -107,6 +108,12 @@ class MainViewController: UIViewController {
                     self?.tableView.reloadData()
                 }
             }
+        }.store(in: &subscribedTo)
+        
+        viewModel.petitions.sink { receiveCompletion in
+            print("Received completion")
+        } receiveValue: { [weak self] receivedPetitions in
+            self?.petitions = receivedPetitions
         }.store(in: &subscribedTo)
     }
     
@@ -163,17 +170,6 @@ extension MainViewController {
     
 }
 
-// MARK: - CreateImageForm Delegate
-
-extension MainViewController: CreateImageFormDelegate {
-    
-    func createPetition(description: String) {
-        let newPetition = Petition(description: description)
-        petitions.append(newPetition)
-    }
-    
-}
-
 // MARK: - UITableView Delegate
 
 extension MainViewController: UITableViewDelegate {}
@@ -194,7 +190,6 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AIImageTableViewCell", for: indexPath) as! AIImageTableViewCell
         
         let petition = petitions[indexPath.row]
-        cell.descriptionText = petition.getDescription()
         
         if petition.imageData == nil && petition.errorDescription == nil {
             cell.isWaiting = true
@@ -208,6 +203,12 @@ extension MainViewController: UITableViewDataSource {
         
         if let errorText = petition.errorDescription {
             cell.errorText = errorText
+        } else {
+            cell.errorText = ""
+        }
+        
+        if let imageDescription = petition.imageDescription {
+            cell.descriptionText = imageDescription
         }
         
         return cell

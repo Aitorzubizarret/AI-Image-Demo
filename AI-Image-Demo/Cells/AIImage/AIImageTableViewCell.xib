@@ -30,7 +30,7 @@
                         <rect key="frame" x="150" y="150" width="20" height="20"/>
                     </activityIndicatorView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error messaage" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dq0-hC-QmX">
-                        <rect key="frame" x="30" y="152" width="280" height="16.333333333333343"/>
+                        <rect key="frame" x="30" y="152" width="260" height="16.333333333333343"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" systemColor="systemRedColor"/>
                         <nil key="highlightedColor"/>
@@ -52,7 +52,7 @@
                 <constraints>
                     <constraint firstItem="0aB-ug-1EC" firstAttribute="centerX" secondItem="FBX-9j-Jf6" secondAttribute="centerX" id="2Ct-wZ-s60"/>
                     <constraint firstAttribute="bottom" secondItem="iqL-kx-qot" secondAttribute="bottom" id="2Nf-7A-eEl"/>
-                    <constraint firstItem="Dq0-hC-QmX" firstAttribute="trailing" secondItem="FBX-9j-Jf6" secondAttribute="trailing" constant="10" id="7Ut-1C-QUp"/>
+                    <constraint firstItem="Dq0-hC-QmX" firstAttribute="trailing" secondItem="FBX-9j-Jf6" secondAttribute="trailing" constant="-10" id="7Ut-1C-QUp"/>
                     <constraint firstItem="Dq0-hC-QmX" firstAttribute="centerY" secondItem="FBX-9j-Jf6" secondAttribute="centerY" id="Jed-Yy-taY"/>
                     <constraint firstItem="FBX-9j-Jf6" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="KIT-LC-y19"/>
                     <constraint firstItem="Dq0-hC-QmX" firstAttribute="leading" secondItem="FBX-9j-Jf6" secondAttribute="leading" constant="10" id="OXl-nF-LZs"/>

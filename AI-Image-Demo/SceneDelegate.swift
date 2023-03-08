@@ -20,11 +20,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
+        // Create the RealmManager.
+        let realmManager: RealmManagerProtocol = RealmManager()
+        
         // Create the APIManager.
         let apiManager: APIManagerProtocol = APIManager()
         
         // Create the ViewModel.
-        let mainVM = MainViewModel(apiManager: apiManager)
+        let mainVM = MainViewModel(apiManager: apiManager, realmManager: realmManager)
         
         // Create the ViewController.
         let mainVC = MainViewController(viewModel: mainVM)

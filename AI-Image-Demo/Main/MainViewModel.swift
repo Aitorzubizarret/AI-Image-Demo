@@ -13,8 +13,10 @@ final class MainViewModel {
     // MARK: - Properties
     
     private var apiManager: APIManagerProtocol
+    private var realmManager: RealmManagerProtocol
     
     private var subscribedTo: [AnyCancellable] = []
+    var petitions = PassthroughSubject<[Petition], Error>()
     var receivedAIImage = PassthroughSubject<AIImage, Error>()
     
     var models: [Model] = [] {
@@ -34,8 +36,9 @@ final class MainViewModel {
     
     // MARK: - Methods
     
-    init(apiManager: APIManagerProtocol) {
+    init(apiManager: APIManagerProtocol, realmManager: RealmManagerProtocol) {
         self.apiManager = apiManager
+        self.realmManager = realmManager
         
         subscriptions()
     }
@@ -56,15 +59,30 @@ final class MainViewModel {
         apiManager.getCreateImageResponse.sink { receiveCompletion in
             switch receiveCompletion {
             case .failure(let error):
-                self.receivedAIImage.send(completion: .failure(CustomError.unknown(description: "\(error.localizedDescription)")))
+                //self.receivedAIImage.send(completion: .failure(CustomError.unknown(description: "\(error.localizedDescription)")))
+                DispatchQueue.main.async { [weak self] in
+                    self?.realmManager.updatePetitionErrorDescription(error.localizedDescription)
+                    self?.realmManager.getPetitions()
+                }
             case .finished:
                 print("")
             }
         } receiveValue: { [weak self] receiveCreateImageResponse in
             if !receiveCreateImageResponse.data.isEmpty,
                let receivedArtificilaImage = receiveCreateImageResponse.data.first {
-                self?.receivedAIImage.send(receivedArtificilaImage)
+                DispatchQueue.main.async {
+                    self?.realmManager.updatePetitionImageData(receivedArtificilaImage.b64_json)
+                    self?.realmManager.getPetitions()
+                }
+                
+//                self?.receivedAIImage.send(receivedArtificilaImage)
             }
+        }.store(in: &subscribedTo)
+        
+        realmManager.petitions.sink { receiveCompletion in
+            print("Receive completion")
+        } receiveValue: { [weak self] receivedPetitions in
+            self?.petitions.send(receivedPetitions)
         }.store(in: &subscribedTo)
     }
     
@@ -76,7 +94,20 @@ final class MainViewModel {
         apiManager.getModelById(id)
     }
     
+    func getPetitions() {
+        realmManager.getPetitions()
+    }
+    
     func createImage(description: String) {
+        // Create the Petition.
+        let petition = Petition()
+        petition.imageDescription = description
+        
+        // Save it in RealmManager.
+        realmManager.addPetition(petition)
+        realmManager.getPetitions()
+        
+        // Call the API to create it in the server and (if no problem) received it.
         apiManager.createImage(description: description)
     }
     

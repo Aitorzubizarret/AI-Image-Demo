@@ -6,27 +6,13 @@
 //
 
 import Foundation
+import RealmSwift
 
-final class Petition {
-    
-    // MARK: - Properties
-    
-    var date: Date
-    private var description: String?
-    var imageData: Data?
-    var errorDescription: String?
-    
-    // MARK: - Methods
-    
-    init(description: String) {
-        self.date = Date()
-        self.description = description
-        self.imageData = nil
-        self.errorDescription = nil
-    }
-    
-    func getDescription() -> String {
-        return description ?? ""
-    }
-    
+final class Petition: Object {
+    @objc dynamic var id: String = UUID().uuidString
+    @objc dynamic var date: Date = Date()
+    @objc dynamic var imageDescription: String?
+    @objc dynamic var imageData: Data?
+    @objc dynamic var errorDescription: String?
+
 }

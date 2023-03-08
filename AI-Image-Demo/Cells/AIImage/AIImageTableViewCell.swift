@@ -24,6 +24,7 @@ class AIImageTableViewCell: UITableViewCell {
             if isWaiting {
                 activityIndicator.isHidden = false
                 activityIndicator.startAnimating()
+                artificialImageView.image = UIImage()
             } else {
                 activityIndicator.isHidden = true
                 activityIndicator.stopAnimating()
@@ -32,9 +33,9 @@ class AIImageTableViewCell: UITableViewCell {
     }
     var aiImageData: Data? {
         didSet {
-            guard let aiImageData = aiImageData else { return }
-            
-            artificialImageView.image = UIImage(data: aiImageData)
+            if let aiImageData = aiImageData {
+                artificialImageView.image = UIImage(data: aiImageData)
+            }
         }
     }
     var descriptionText: String = "" {
@@ -70,6 +71,7 @@ class AIImageTableViewCell: UITableViewCell {
     private func setupView() {
         selectionStyle = .none
         
+        artificialImageView.image = UIImage()
         activityIndicator.isHidden = true
         errorLabel.isHidden = true
     }

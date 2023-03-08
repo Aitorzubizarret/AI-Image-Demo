@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol CreateImageFormDelegate {
-    func createPetition(description: String)
-}
-
 class CreateImageFormViewController: UIViewController {
     
     // MARK: - UI Elements
@@ -24,8 +20,6 @@ class CreateImageFormViewController: UIViewController {
     // MARK: - Properties
     
     private var viewModel: MainViewModel
-    
-    var delegate: CreateImageFormDelegate?
     
     private var descriptionTextViewPlaceholderText = "Describe the image you want to AI to create."
     
@@ -96,9 +90,7 @@ class CreateImageFormViewController: UIViewController {
            let descriptionText = descriptionTextView.text {
             viewModel.createImage(description: descriptionText)
             
-            dismiss(animated: true) {
-                self.delegate?.createPetition(description: self.descriptionTextView.text)
-            }
+            dismiss(animated: true)
         }
     }
     
