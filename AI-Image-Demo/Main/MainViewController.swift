@@ -172,7 +172,14 @@ extension MainViewController {
 
 // MARK: - UITableView Delegate
 
-extension MainViewController: UITableViewDelegate {}
+extension MainViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let imageDetailVC = ImageDetailViewController(petition: petitions[indexPath.row])
+        show(imageDetailVC, sender: self)
+    }
+    
+}
 
 // MARK: - UITableView Data Source
 
