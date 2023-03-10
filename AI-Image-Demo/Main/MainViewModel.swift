@@ -59,7 +59,6 @@ final class MainViewModel {
         apiManager.getCreateImageResponse.sink { receiveCompletion in
             switch receiveCompletion {
             case .failure(let error):
-                //self.receivedAIImage.send(completion: .failure(CustomError.unknown(description: "\(error.localizedDescription)")))
                 DispatchQueue.main.async { [weak self] in
                     self?.realmManager.updatePetitionErrorDescription(error.localizedDescription)
                     self?.realmManager.getPetitions()
@@ -74,8 +73,6 @@ final class MainViewModel {
                     self?.realmManager.updatePetitionImageData(receivedArtificilaImage.b64_json)
                     self?.realmManager.getPetitions()
                 }
-                
-//                self?.receivedAIImage.send(receivedArtificilaImage)
             }
         }.store(in: &subscribedTo)
         
@@ -98,7 +95,7 @@ final class MainViewModel {
         realmManager.getPetitions()
     }
     
-    func createImage(description: String) {
+    func createImage(description: String, size: String, quantity: Int) {
         // Create the Petition.
         let petition = Petition()
         petition.imageDescription = description
@@ -108,7 +105,7 @@ final class MainViewModel {
         realmManager.getPetitions()
         
         // Call the API to create it in the server and (if no problem) received it.
-        apiManager.createImage(description: description)
+        apiManager.createImage(description: description, size: size, quantity: quantity)
     }
     
 }

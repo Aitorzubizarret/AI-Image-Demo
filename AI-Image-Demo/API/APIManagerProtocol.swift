@@ -20,6 +20,6 @@ protocol APIManagerProtocol {
     
     func getModels()
     func getModelById(_ id: String)
-    func createImage(description: String)
+    func createImage(description: String, size: String, quantity: Int)
     
 }

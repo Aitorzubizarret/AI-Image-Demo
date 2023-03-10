@@ -121,8 +121,8 @@ extension APIManager: APIManagerProtocol {
         }
     }
     
-    func createImage(description: String) {
-        let createImageEndpoint = EndpointCases.createImage(description: description)
+    func createImage(description: String, size: String, quantity: Int) {
+        let createImageEndpoint = EndpointCases.createImage(description: description, size: size, quantity: quantity)
         request(endpoint: createImageEndpoint) { (result: Result<CreateImageResponse, Error>) in
             switch result {
             case .success(let createImageResponse):

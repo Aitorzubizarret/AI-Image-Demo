@@ -11,7 +11,7 @@ enum EndpointCases: Endpoint {
     
     case getModels
     case getModelById(_ id: String)
-    case createImage(description: String)
+    case createImage(description: String, size: String, quantity: Int)
     
     var httpMethod: String {
         switch self {
@@ -69,10 +69,10 @@ enum EndpointCases: Endpoint {
             return nil
         case .getModelById:
             return nil
-        case .createImage(let description):
+        case .createImage(let description, let size, let quantity):
             return ["prompt": description,
-                    "n": 1,
-                    "size": "256x256",
+                    "n": quantity,
+                    "size": size,
                     "response_format": "b64_json"]
         }
     }

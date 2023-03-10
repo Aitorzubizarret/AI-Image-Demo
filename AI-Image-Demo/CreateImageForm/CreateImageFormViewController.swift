@@ -39,7 +39,7 @@ class CreateImageFormViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
-        setupNavControlelr()
+        setupNavController()
     }
     
     private func setupView() {
@@ -64,7 +64,7 @@ class CreateImageFormViewController: UIViewController {
         view.addGestureRecognizer(tapToHide)
     }
     
-    private func setupNavControlelr() {
+    private func setupNavController() {
         let cancelButtonItem = UIBarButtonItem(title: "Cancel",
                                                style: .plain,
                                                target: self,
@@ -88,7 +88,18 @@ class CreateImageFormViewController: UIViewController {
     @objc private func createImageAction() {
         if descriptionTextView.text != descriptionTextViewPlaceholderText && !descriptionTextView.text.isEmpty,
            let descriptionText = descriptionTextView.text {
-            viewModel.createImage(description: descriptionText)
+            var imageSizeString: String = ""
+            switch sizeSegment.selectedSegmentIndex {
+            case 0:
+                imageSizeString = "256x256"
+            case 1:
+                imageSizeString = "512x512"
+            case 2:
+                imageSizeString = "1024x1024"
+            default:
+                imageSizeString = ""
+            }
+            viewModel.createImage(description: descriptionText, size: imageSizeString, quantity: 1)
             
             dismiss(animated: true)
         }
