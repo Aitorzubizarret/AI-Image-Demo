@@ -59,6 +59,9 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        // Appearance.
+        tableView.separatorStyle = .none
+        
         // Register the cells.
         let aiImageCell = UINib(nibName: "AIImageTableViewCell", bundle: nil)
         tableView.register(aiImageCell, forCellReuseIdentifier: "AIImageTableViewCell")
