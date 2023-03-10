@@ -94,9 +94,6 @@ class MainViewController: UIViewController {
                         self?.tableView.reloadData()
                     }
                 }
-//                DispatchQueue.main.async {
-//                    self.showErrorAlert(errorDescription: "\(error.localizedDescription)")
-//                }
             case .finished:
                 print("")
             }
@@ -119,63 +116,13 @@ class MainViewController: UIViewController {
     
 }
 
-// MARK: - Save Image in Photo Gallery
-
-extension MainViewController {
-    
-    private func saveImageAction() {
-//        if let image = imageView.image {
-//            UIImageWriteToSavedPhotosAlbum(image, self, #selector(savedImage), nil)
-//        }
-    }
-    
-    @objc func savedImage(_ image: UIImage, error: Error?, context: UnsafeMutableRawPointer?) {
-        if let error = error {
-            showErrorAlert(errorDescription: error.localizedDescription)
-            return
-        }
-        
-        showSuccessAlert()
-    }
-    
-}
-
-// MARK: - UIAlertController
-
-extension MainViewController {
-    
-    private func showSuccessAlert() {
-        let alert = UIAlertController(title: "Success", message: "Photo saved in photo gallery", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(okAction)
-        
-        present(alert, animated: true)
-    }
-    
-    private func showErrorAlert(errorDescription: String) {
-        let alert = UIAlertController(title: "Error", message: errorDescription, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(okAction)
-        
-        present(alert, animated: true)
-    }
-    
-    private func showErrorDescriptionEmpty() {
-        let alert = UIAlertController(title: "Error", message: "You need to write down a description", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(okAction)
-        
-        present(alert, animated: true)
-    }
-    
-}
-
 // MARK: - UITableView Delegate
 
 extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let imageDetailVC = ImageDetailViewController(petition: petitions[indexPath.row])
+        let imageDetailVM = ImageDetailViewModel(petition: petitions[indexPath.row])
+        let imageDetailVC = ImageDetailViewController(viewModel: imageDetailVM)
         show(imageDetailVC, sender: self)
     }
     

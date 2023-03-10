@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageDetailViewController" customModule="AI_Image_Demo" customModuleProvider="target">
             <connections>
+                <outlet property="downloadImageButton" destination="2lg-eT-YwK" id="BTz-Wf-KWk"/>
                 <outlet property="imageDescriptionLabel" destination="K3Q-fX-CWK" id="z7U-Ln-9Wc"/>
                 <outlet property="imageErrorDescriptionLabel" destination="dv4-3a-CWo" id="EPf-nz-078"/>
                 <outlet property="imageView" destination="3zd-pX-DwA" id="d7A-3R-rtW"/>
@@ -41,6 +42,17 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lg-eT-YwK">
+                    <rect key="frame" x="20" y="783" width="353" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="NRV-3R-Q9b"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Download Image"/>
+                    <connections>
+                        <action selector="downloadImageButtonTapped:" destination="-1" eventType="touchUpInside" id="N5w-6d-qTD"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -48,9 +60,12 @@
                 <constraint firstItem="K3Q-fX-CWK" firstAttribute="trailing" secondItem="3zd-pX-DwA" secondAttribute="trailing" id="2fg-hb-rLJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3zd-pX-DwA" secondAttribute="trailing" constant="16" id="5Ed-Bf-kbZ"/>
                 <constraint firstItem="dv4-3a-CWo" firstAttribute="centerY" secondItem="3zd-pX-DwA" secondAttribute="centerY" id="73h-Ct-sd0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="2lg-eT-YwK" secondAttribute="bottom" id="A1j-cH-zOD"/>
                 <constraint firstItem="3zd-pX-DwA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="J0Y-0B-bZj"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="K3Q-fX-CWK" secondAttribute="bottom" constant="20" id="PFF-tw-Kj8"/>
+                <constraint firstItem="2lg-eT-YwK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="K3Q-fX-CWK" secondAttribute="bottom" constant="20" id="N3n-iN-SHt"/>
                 <constraint firstItem="K3Q-fX-CWK" firstAttribute="top" secondItem="3zd-pX-DwA" secondAttribute="bottom" constant="20" id="S6M-Mq-3UI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2lg-eT-YwK" secondAttribute="trailing" constant="20" id="c1F-aY-KtR"/>
+                <constraint firstItem="2lg-eT-YwK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="eSA-PO-8l7"/>
                 <constraint firstItem="3zd-pX-DwA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="oA7-W9-yAy"/>
                 <constraint firstItem="dv4-3a-CWo" firstAttribute="leading" secondItem="3zd-pX-DwA" secondAttribute="leading" constant="10" id="qCB-r0-pAQ"/>
                 <constraint firstItem="dv4-3a-CWo" firstAttribute="height" relation="lessThanOrEqual" secondItem="3zd-pX-DwA" secondAttribute="height" id="qsV-vs-mMv"/>
