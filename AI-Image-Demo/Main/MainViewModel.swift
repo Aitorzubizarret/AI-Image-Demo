@@ -67,10 +67,13 @@ final class MainViewModel {
                 print("")
             }
         } receiveValue: { [weak self] receiveCreateImageResponse in
-            if !receiveCreateImageResponse.data.isEmpty,
-               let receivedArtificilaImage = receiveCreateImageResponse.data.first {
+            if !receiveCreateImageResponse.data.isEmpty {
+                var imagesData: [Data] = []
+                for imageData in receiveCreateImageResponse.data {
+                    imagesData.append(imageData.b64_json)
+                }
                 DispatchQueue.main.async {
-                    self?.realmManager.updatePetitionImageData(receivedArtificilaImage.b64_json)
+                    self?.realmManager.updatePetitionImageData(imagesData)
                     self?.realmManager.getPetitions()
                 }
             }

@@ -12,7 +12,7 @@ final class Petition: Object {
     @objc dynamic var id: String = UUID().uuidString
     @objc dynamic var date: Date = Date()
     @objc dynamic var imageDescription: String?
-    @objc dynamic var imageData: Data?
+    var imagesData = List<Data>()
     @objc dynamic var errorDescription: String?
 
 }

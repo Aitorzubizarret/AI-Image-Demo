@@ -101,12 +101,8 @@ class MainViewController: UIViewController {
                 print("")
             }
         } receiveValue: { [weak self] receivedArtificialImage in
-            if let lastPetition = self?.petitions.last {
-                lastPetition.imageData = receivedArtificialImage.b64_json
-                
-                DispatchQueue.main.async { [weak self] in
-                    self?.tableView.reloadData()
-                }
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
             }
         }.store(in: &subscribedTo)
         
@@ -148,14 +144,14 @@ extension MainViewController: UITableViewDataSource {
         
         let petition = petitions[indexPath.row]
         
-        if petition.imageData == nil && petition.errorDescription == nil {
+        if petition.imagesData.isEmpty && petition.errorDescription == nil {
             cell.isWaiting = true
         } else {
             cell.isWaiting = false
         }
         
-        if let imageData = petition.imageData {
-            cell.aiImageData = imageData
+        if let firstImageData = petition.imagesData.first {
+            cell.aiImageData = firstImageData
         }
         
         if let errorText = petition.errorDescription {

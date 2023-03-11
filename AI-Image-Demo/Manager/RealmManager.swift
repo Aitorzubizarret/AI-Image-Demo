@@ -44,13 +44,15 @@ extension RealmManager: RealmManagerProtocol {
         }
     }
     
-    func updatePetitionImageData(_ imageData: Data) {
+    func updatePetitionImageData(_ imagesData: [Data]) {
         let petitions = realm.objects(Petition.self)
         
         if let lastPetition = petitions.last {
             do {
                 try realm.write({
-                    lastPetition.imageData = imageData
+                    for imageData in imagesData {
+                        lastPetition.imagesData.append(imageData)
+                    }
                 })
             } catch let error {
                 print("Error RealmManager - updatePetitionImageData : \(error.localizedDescription)")

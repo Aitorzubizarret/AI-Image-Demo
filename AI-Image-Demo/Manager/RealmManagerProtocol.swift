@@ -21,7 +21,7 @@ protocol RealmManagerProtocol {
     
     func getPetitions()
     func addPetition(_ petition: Petition)
-    func updatePetitionImageData(_ imageData: Data)
+    func updatePetitionImageData(_ imageData: [Data])
     func updatePetitionErrorDescription(_ errorDescription: String)
     
 }

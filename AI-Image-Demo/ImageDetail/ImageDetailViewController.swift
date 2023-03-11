@@ -43,8 +43,9 @@ class ImageDetailViewController: UIViewController {
     
     private func setupView() {
         // ImageView
-        if let imageData = viewModel.getPetitionImageData() {
-            imageView.image = UIImage(data: imageData)
+        if let imagesData = viewModel.getPetitionImageData(),
+           let firstImageData = imagesData.first {
+            imageView.image = UIImage(data: firstImageData)
         } else {
             imageView.image = UIImage()
         }
@@ -63,8 +64,9 @@ class ImageDetailViewController: UIViewController {
     
     // Saves the image displayed in the UIImageView in the Photo Gallery.
     private func downloadImageAction() {
-        if let imageData = viewModel.getPetitionImageData(),
-           let image = UIImage(data: imageData) {
+        if let imagesData = viewModel.getPetitionImageData(),
+           let firstImageData = imagesData.first,
+           let image = UIImage(data: firstImageData) {
             UIImageWriteToSavedPhotosAlbum(image, self, #selector(savedImage), nil)
         } else {
             showErrorAlert(errorDescription: "There is no image to save.")

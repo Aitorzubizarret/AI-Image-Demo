@@ -88,6 +88,7 @@ class CreateImageFormViewController: UIViewController {
     @objc private func createImageAction() {
         if descriptionTextView.text != descriptionTextViewPlaceholderText && !descriptionTextView.text.isEmpty,
            let descriptionText = descriptionTextView.text {
+            // Image size.
             var imageSizeString: String = ""
             switch sizeSegment.selectedSegmentIndex {
             case 0:
@@ -99,7 +100,23 @@ class CreateImageFormViewController: UIViewController {
             default:
                 imageSizeString = ""
             }
-            viewModel.createImage(description: descriptionText, size: imageSizeString, quantity: 1)
+            
+            // Image quantity.
+            var imageQuantity: Int = 0
+            switch resultsSegment.selectedSegmentIndex {
+            case 0:
+                imageQuantity = 1
+            case 1:
+                imageQuantity = 2
+            case 2:
+                imageQuantity = 3
+            case 3:
+                imageQuantity = 4
+            default:
+                imageQuantity = 0
+            }
+            
+            viewModel.createImage(description: descriptionText, size: imageSizeString, quantity: imageQuantity)
             
             dismiss(animated: true)
         }

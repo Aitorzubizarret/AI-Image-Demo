@@ -19,8 +19,16 @@ final class ImageDetailViewModel {
         self.petition = petition
     }
     
-    func getPetitionImageData() -> Data? {
-        return petition.imageData
+    func getPetitionImageData() -> [Data]? {
+        if petition.imagesData.isEmpty {
+            return nil
+        } else {
+            var imagesData: [Data] = []
+            for imageData in petition.imagesData {
+                imagesData.append(imageData)
+            }
+            return imagesData
+        }
     }
     
     func getErrorDescription() -> String? {
