@@ -14,5 +14,20 @@ final class Petition: Object {
     @objc dynamic var imageDescription: String?
     var imagesData = List<Data>()
     @objc dynamic var errorDescription: String?
+}
 
+extension Petition {
+    
+    func getDataArray() -> [Data]? {
+        if !imagesData.isEmpty {
+            var dataArray: [Data] = []
+            for imageData in imagesData {
+                dataArray.append(imageData)
+            }
+            return dataArray
+        } else {
+            return nil
+        }
+    }
+    
 }
