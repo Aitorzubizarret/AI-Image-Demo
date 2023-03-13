@@ -63,8 +63,8 @@ class MainViewController: UIViewController {
         tableView.separatorStyle = .none
         
         // Register the cells.
-        let aiImageCell = UINib(nibName: "AIImageTableViewCell", bundle: nil)
-        tableView.register(aiImageCell, forCellReuseIdentifier: "AIImageTableViewCell")
+        let petitionCell = UINib(nibName: "PetitionTableViewCell", bundle: nil)
+        tableView.register(petitionCell, forCellReuseIdentifier: "PetitionTableViewCell")
     }
     
     private func setupNavController() {
@@ -140,31 +140,23 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AIImageTableViewCell", for: indexPath) as! AIImageTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PetitionTableViewCell", for: indexPath) as! PetitionTableViewCell
+        cell.delegate = self
+        cell.row = indexPath.row
         
-        let petition = petitions[indexPath.row]
-        
-        if petition.imagesData.isEmpty && petition.errorDescription == nil {
-            cell.isWaiting = true
-        } else {
-            cell.isWaiting = false
-        }
-        
-        if let firstImageData = petition.imagesData.first {
-            cell.aiImageData = firstImageData
-        }
-        
-        if let errorText = petition.errorDescription {
-            cell.errorText = errorText
-        } else {
-            cell.errorText = ""
-        }
-        
-        if let imageDescription = petition.imageDescription {
-            cell.descriptionText = imageDescription
-        }
+        cell.petition = petitions[indexPath.row]
         
         return cell
+    }
+    
+}
+
+extension MainViewController: PetitionCellDelegate {
+    
+    func selectPetition(row: Int) {
+        let imageDetailVM = ImageDetailViewModel(petition: petitions[row])
+        let imageDetailVC = ImageDetailViewController(viewModel: imageDetailVM)
+        show(imageDetailVC, sender: self)
     }
     
 }

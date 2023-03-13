@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1A161F0829B5EDBA00AF7177 /* CreateImageFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A161F0629B5EDBA00AF7177 /* CreateImageFormViewController.swift */; };
 		1A161F0929B5EDBA00AF7177 /* CreateImageFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A161F0729B5EDBA00AF7177 /* CreateImageFormViewController.xib */; };
-		1A161F1029B6346400AF7177 /* AIImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A161F0E29B6346400AF7177 /* AIImageTableViewCell.swift */; };
-		1A161F1129B6346400AF7177 /* AIImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A161F0F29B6346400AF7177 /* AIImageTableViewCell.xib */; };
 		1A161F1329B640B500AF7177 /* Petition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A161F1229B640B500AF7177 /* Petition.swift */; };
 		1A161F1629B67CEB00AF7177 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1A161F1529B67CEB00AF7177 /* Realm */; };
 		1A161F1829B67CEB00AF7177 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A161F1729B67CEB00AF7177 /* RealmSwift */; };
@@ -35,6 +33,10 @@
 		1A704F4C29BB7217000DE061 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A704F4A29BB7217000DE061 /* ImageDetailViewController.swift */; };
 		1A704F4D29BB7217000DE061 /* ImageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A704F4B29BB7217000DE061 /* ImageDetailViewController.xib */; };
 		1A704F4F29BB8BF8000DE061 /* ImageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A704F4E29BB8BF8000DE061 /* ImageDetailViewModel.swift */; };
+		1A704F5329BE9873000DE061 /* PetitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A704F5129BE9873000DE061 /* PetitionTableViewCell.swift */; };
+		1A704F5429BE9873000DE061 /* PetitionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A704F5229BE9873000DE061 /* PetitionTableViewCell.xib */; };
+		1A704F5829BF3E44000DE061 /* PetitionImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A704F5629BF3E44000DE061 /* PetitionImageCollectionViewCell.swift */; };
+		1A704F5929BF3E44000DE061 /* PetitionImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A704F5729BF3E44000DE061 /* PetitionImageCollectionViewCell.xib */; };
 		1AAE3FD729B221E000639CE5 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FD629B221E000639CE5 /* Endpoint.swift */; };
 		1AAE3FD929B2221200639CE5 /* EndpointCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FD829B2221200639CE5 /* EndpointCases.swift */; };
 		1AAE3FDD29B2345500639CE5 /* OpenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FDC29B2345500639CE5 /* OpenAI.swift */; };
@@ -65,8 +67,6 @@
 /* Begin PBXFileReference section */
 		1A161F0629B5EDBA00AF7177 /* CreateImageFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageFormViewController.swift; sourceTree = "<group>"; };
 		1A161F0729B5EDBA00AF7177 /* CreateImageFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateImageFormViewController.xib; sourceTree = "<group>"; };
-		1A161F0E29B6346400AF7177 /* AIImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIImageTableViewCell.swift; sourceTree = "<group>"; };
-		1A161F0F29B6346400AF7177 /* AIImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AIImageTableViewCell.xib; sourceTree = "<group>"; };
 		1A161F1229B640B500AF7177 /* Petition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petition.swift; sourceTree = "<group>"; };
 		1A161F1A29B6A6C700AF7177 /* RealmManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerProtocol.swift; sourceTree = "<group>"; };
 		1A161F1C29B6A6D100AF7177 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -93,6 +93,10 @@
 		1A704F4A29BB7217000DE061 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
 		1A704F4B29BB7217000DE061 /* ImageDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageDetailViewController.xib; sourceTree = "<group>"; };
 		1A704F4E29BB8BF8000DE061 /* ImageDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewModel.swift; sourceTree = "<group>"; };
+		1A704F5129BE9873000DE061 /* PetitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionTableViewCell.swift; sourceTree = "<group>"; };
+		1A704F5229BE9873000DE061 /* PetitionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetitionTableViewCell.xib; sourceTree = "<group>"; };
+		1A704F5629BF3E44000DE061 /* PetitionImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		1A704F5729BF3E44000DE061 /* PetitionImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetitionImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		1AAE3FD629B221E000639CE5 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		1AAE3FD829B2221200639CE5 /* EndpointCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointCases.swift; sourceTree = "<group>"; };
 		1AAE3FDC29B2345500639CE5 /* OpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAI.swift; sourceTree = "<group>"; };
@@ -142,18 +146,10 @@
 		1A161F0C29B633CF00AF7177 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				1A161F0D29B633DF00AF7177 /* AIImage */,
+				1A704F5029BE9854000DE061 /* Petition */,
+				1A704F5529BF3E24000DE061 /* PetitionImage */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		1A161F0D29B633DF00AF7177 /* AIImage */ = {
-			isa = PBXGroup;
-			children = (
-				1A161F0E29B6346400AF7177 /* AIImageTableViewCell.swift */,
-				1A161F0F29B6346400AF7177 /* AIImageTableViewCell.xib */,
-			);
-			path = AIImage;
 			sourceTree = "<group>";
 		};
 		1A161F1929B6A68900AF7177 /* Manager */ = {
@@ -278,6 +274,24 @@
 			path = ImageDetail;
 			sourceTree = "<group>";
 		};
+		1A704F5029BE9854000DE061 /* Petition */ = {
+			isa = PBXGroup;
+			children = (
+				1A704F5129BE9873000DE061 /* PetitionTableViewCell.swift */,
+				1A704F5229BE9873000DE061 /* PetitionTableViewCell.xib */,
+			);
+			path = Petition;
+			sourceTree = "<group>";
+		};
+		1A704F5529BF3E24000DE061 /* PetitionImage */ = {
+			isa = PBXGroup;
+			children = (
+				1A704F5629BF3E44000DE061 /* PetitionImageCollectionViewCell.swift */,
+				1A704F5729BF3E44000DE061 /* PetitionImageCollectionViewCell.xib */,
+			);
+			path = PetitionImage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -391,9 +405,10 @@
 			files = (
 				1A161F0929B5EDBA00AF7177 /* CreateImageFormViewController.xib in Resources */,
 				1A704F4D29BB7217000DE061 /* ImageDetailViewController.xib in Resources */,
+				1A704F5929BF3E44000DE061 /* PetitionImageCollectionViewCell.xib in Resources */,
 				1A38FA6F29B102EC00E1CD22 /* LaunchScreen.storyboard in Resources */,
+				1A704F5429BE9873000DE061 /* PetitionTableViewCell.xib in Resources */,
 				1A38FA9529B1069C00E1CD22 /* MainViewController.xib in Resources */,
-				1A161F1129B6346400AF7177 /* AIImageTableViewCell.xib in Resources */,
 				1A38FA6C29B102EC00E1CD22 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,15 +438,16 @@
 				1AAE3FD929B2221200639CE5 /* EndpointCases.swift in Sources */,
 				1AAE3FE529B284BC00639CE5 /* CreateImageResponse.swift in Sources */,
 				1A38FA9429B1069C00E1CD22 /* MainViewController.swift in Sources */,
-				1A161F1029B6346400AF7177 /* AIImageTableViewCell.swift in Sources */,
 				1A161F1329B640B500AF7177 /* Petition.swift in Sources */,
 				1AAE3FDD29B2345500639CE5 /* OpenAI.swift in Sources */,
+				1A704F5329BE9873000DE061 /* PetitionTableViewCell.swift in Sources */,
 				1A704F4C29BB7217000DE061 /* ImageDetailViewController.swift in Sources */,
 				1AAE3FE729B4B45500639CE5 /* CustomError.swift in Sources */,
 				1A161F0829B5EDBA00AF7177 /* CreateImageFormViewController.swift in Sources */,
 				1A161F2029B6ABE900AF7177 /* Results-Exxtension.swift in Sources */,
 				1A38FA6329B102EB00E1CD22 /* AppDelegate.swift in Sources */,
 				1AAE3FE929B4E1EF00639CE5 /* ErrorResponse.swift in Sources */,
+				1A704F5829BF3E44000DE061 /* PetitionImageCollectionViewCell.swift in Sources */,
 				1A38FA6529B102EB00E1CD22 /* SceneDelegate.swift in Sources */,
 				1AAE3FD729B221E000639CE5 /* Endpoint.swift in Sources */,
 				1A704F4F29BB8BF8000DE061 /* ImageDetailViewModel.swift in Sources */,
