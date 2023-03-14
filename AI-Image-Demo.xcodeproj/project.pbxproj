@@ -45,6 +45,7 @@
 		1AAE3FE729B4B45500639CE5 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FE629B4B45500639CE5 /* CustomError.swift */; };
 		1AAE3FE929B4E1EF00639CE5 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FE829B4E1EF00639CE5 /* ErrorResponse.swift */; };
 		1AAE3FEB29B4E22C00639CE5 /* ErrorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FEA29B4E22C00639CE5 /* ErrorObject.swift */; };
+		1AD2077A29C1109D00F72182 /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2077929C1109D00F72182 /* MainBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		1AAE3FE629B4B45500639CE5 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		1AAE3FE829B4E1EF00639CE5 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		1AAE3FEA29B4E22C00639CE5 /* ErrorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorObject.swift; sourceTree = "<group>"; };
+		1AD2077929C1109D00F72182 /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,7 +202,7 @@
 				1A38FAA129B16A5C00E1CD22 /* Model */,
 				1A161F1929B6A68900AF7177 /* Manager */,
 				1A38FA9A29B10CF300E1CD22 /* API */,
-				1A38FA9729B1078800E1CD22 /* Main */,
+				1A38FA9729B1078800E1CD22 /* MainScreen-Module */,
 				1A704F4929BB71E6000DE061 /* ImageDetail */,
 				1A161F0529B5ED9500AF7177 /* CreateImageForm */,
 				1A161F0C29B633CF00AF7177 /* Cells */,
@@ -226,14 +228,15 @@
 			path = "AI-Image-DemoUITests";
 			sourceTree = "<group>";
 		};
-		1A38FA9729B1078800E1CD22 /* Main */ = {
+		1A38FA9729B1078800E1CD22 /* MainScreen-Module */ = {
 			isa = PBXGroup;
 			children = (
+				1AD2077929C1109D00F72182 /* MainBuilder.swift */,
 				1A38FA9229B1069C00E1CD22 /* MainViewController.swift */,
 				1A38FA9329B1069C00E1CD22 /* MainViewController.xib */,
 				1A38FA9829B109BE00E1CD22 /* MainViewModel.swift */,
 			);
-			path = Main;
+			path = "MainScreen-Module";
 			sourceTree = "<group>";
 		};
 		1A38FA9A29B10CF300E1CD22 /* API */ = {
@@ -457,6 +460,7 @@
 				1A161F1B29B6A6C700AF7177 /* RealmManagerProtocol.swift in Sources */,
 				1A38FAA929B2013000E1CD22 /* GetModelsResponse.swift in Sources */,
 				1AAE3FE329B284AA00639CE5 /* AIImage.swift in Sources */,
+				1AD2077A29C1109D00F72182 /* MainBuilder.swift in Sources */,
 				1A38FA9C29B10D0300E1CD22 /* APIManagerProtocol.swift in Sources */,
 				1AAE3FEB29B4E22C00639CE5 /* ErrorObject.swift in Sources */,
 				1A38FAA529B1FF2E00E1CD22 /* Model.swift in Sources */,
