@@ -18,12 +18,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="453"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="openai-logo" translatesAutoresizingMaskIntoConstraints="NO" id="HVP-kQ-Sgb">
+                        <rect key="frame" x="20" y="19" width="20" height="20"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="Aqf-7D-RTt"/>
+                            <constraint firstAttribute="height" constant="20" id="U9r-fN-oDc"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Technology Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrM-kf-Twl">
-                        <rect key="frame" x="20" y="20" width="280" height="18"/>
+                        <rect key="frame" x="46" y="20" width="254" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="IEZ-7a-7Xs"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -53,7 +61,7 @@
                         <rect key="frame" x="0.0" y="352" width="320" height="26"/>
                     </pageControl>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Petition description text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNy-sM-Oh8">
-                        <rect key="frame" x="20" y="398" width="280" height="34"/>
+                        <rect key="frame" x="20" y="398" width="280" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="ai7-Hd-Kb6"/>
                         </constraints>
@@ -70,6 +78,7 @@
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="vrM-kf-Twl" firstAttribute="leading" secondItem="HVP-kQ-Sgb" secondAttribute="trailing" constant="6" id="3z8-6I-7kM"/>
                     <constraint firstAttribute="trailing" secondItem="vrM-kf-Twl" secondAttribute="trailing" constant="20" id="76N-yl-DRm"/>
                     <constraint firstItem="XNy-sM-Oh8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Bjx-iQ-BZ1"/>
                     <constraint firstAttribute="trailing" secondItem="XNy-sM-Oh8" secondAttribute="trailing" constant="20" id="CMV-eB-Sw2"/>
@@ -80,16 +89,17 @@
                     <constraint firstAttribute="trailing" secondItem="tSP-nl-0wn" secondAttribute="trailing" id="Jv2-dD-c6j"/>
                     <constraint firstItem="Xi6-sV-ZOn" firstAttribute="centerY" secondItem="tSP-nl-0wn" secondAttribute="centerY" id="MPJ-dS-OsS"/>
                     <constraint firstItem="XNy-sM-Oh8" firstAttribute="top" secondItem="tSP-nl-0wn" secondAttribute="bottom" constant="20" id="On0-dF-oqq"/>
-                    <constraint firstItem="gWL-eg-zIs" firstAttribute="top" secondItem="XNy-sM-Oh8" secondAttribute="bottom" constant="20" id="PFU-OL-b8O"/>
+                    <constraint firstItem="gWL-eg-zIs" firstAttribute="top" relation="greaterThanOrEqual" secondItem="XNy-sM-Oh8" secondAttribute="bottom" constant="20" id="PFU-OL-b8O"/>
                     <constraint firstAttribute="trailing" secondItem="gWL-eg-zIs" secondAttribute="trailing" id="Pg2-yT-OUb"/>
                     <constraint firstItem="tSP-nl-0wn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QEc-Pv-KPk"/>
                     <constraint firstItem="gWL-eg-zIs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rtd-eS-GTg"/>
                     <constraint firstItem="tSP-nl-0wn" firstAttribute="top" secondItem="vrM-kf-Twl" secondAttribute="bottom" constant="20" id="W4X-F1-KFd"/>
                     <constraint firstItem="3Uh-8o-Lbv" firstAttribute="leading" secondItem="tSP-nl-0wn" secondAttribute="leading" id="YPM-s4-vWf"/>
                     <constraint firstItem="fdh-BU-46L" firstAttribute="centerY" secondItem="tSP-nl-0wn" secondAttribute="centerY" id="bSz-1d-AJe"/>
-                    <constraint firstItem="vrM-kf-Twl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="bar-Qt-cxv"/>
                     <constraint firstItem="Xi6-sV-ZOn" firstAttribute="trailing" secondItem="tSP-nl-0wn" secondAttribute="trailing" constant="-20" id="czh-L6-FWM"/>
+                    <constraint firstItem="HVP-kQ-Sgb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="lT4-q0-gMB"/>
                     <constraint firstItem="3Uh-8o-Lbv" firstAttribute="trailing" secondItem="tSP-nl-0wn" secondAttribute="trailing" id="mZl-G0-gYu"/>
+                    <constraint firstItem="HVP-kQ-Sgb" firstAttribute="centerY" secondItem="vrM-kf-Twl" secondAttribute="centerY" id="sRA-XU-GUJ"/>
                     <constraint firstItem="3Uh-8o-Lbv" firstAttribute="bottom" secondItem="tSP-nl-0wn" secondAttribute="bottom" id="viS-XH-TOe"/>
                     <constraint firstItem="vrM-kf-Twl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="vxU-DT-G7u"/>
                 </constraints>
@@ -102,12 +112,14 @@
                 <outlet property="errorDescriptionLabel" destination="Xi6-sV-ZOn" id="cMT-eT-9Uo"/>
                 <outlet property="pageControl" destination="3Uh-8o-Lbv" id="NF3-Zi-Nru"/>
                 <outlet property="petitionDescriptionLabel" destination="XNy-sM-Oh8" id="gxh-uX-kHD"/>
+                <outlet property="technologyIconImageView" destination="HVP-kQ-Sgb" id="aV3-zB-EJ8"/>
                 <outlet property="technologyNameLabel" destination="vrM-kf-Twl" id="xyp-h2-8Og"/>
             </connections>
             <point key="canvasLocation" x="138.93129770992365" y="130.63380281690141"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="openai-logo" width="956" height="968"/>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -15,6 +15,7 @@ class PetitionTableViewCell: UITableViewCell {
     
     // MARK: - UI Elements
     
+    @IBOutlet weak var technologyIconImageView: UIImageView!
     @IBOutlet weak var technologyNameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -28,7 +29,7 @@ class PetitionTableViewCell: UITableViewCell {
     var petition: Petition = Petition() {
         didSet {
             // Technology Name.
-            technologyNameLabel.text = "Created with OpenAI - DALL·E"
+            technologyNameLabel.text = "OpenAI - DALL·E"
             
             // Activity Indicator.
             if petition.imagesData.isEmpty && petition.errorDescription == nil {
