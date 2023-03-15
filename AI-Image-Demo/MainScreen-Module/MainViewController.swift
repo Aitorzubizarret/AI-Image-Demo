@@ -120,8 +120,7 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let imageDetailVM = ImageDetailViewModel(petition: petitions[indexPath.row])
-        let imageDetailVC = ImageDetailViewController(viewModel: imageDetailVM)
+        let imageDetailVC = ImageDetailBuilder.create(petition: petitions[indexPath.row])
         show(imageDetailVC, sender: self)
     }
     

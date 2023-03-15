@@ -46,6 +46,7 @@
 		1AAE3FE929B4E1EF00639CE5 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FE829B4E1EF00639CE5 /* ErrorResponse.swift */; };
 		1AAE3FEB29B4E22C00639CE5 /* ErrorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FEA29B4E22C00639CE5 /* ErrorObject.swift */; };
 		1AD2077A29C1109D00F72182 /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2077929C1109D00F72182 /* MainBuilder.swift */; };
+		1AD2077C29C1426B00F72182 /* ImageDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2077B29C1426B00F72182 /* ImageDetailBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		1AAE3FE829B4E1EF00639CE5 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		1AAE3FEA29B4E22C00639CE5 /* ErrorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorObject.swift; sourceTree = "<group>"; };
 		1AD2077929C1109D00F72182 /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
+		1AD2077B29C1426B00F72182 /* ImageDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +205,7 @@
 				1A161F1929B6A68900AF7177 /* Manager */,
 				1A38FA9A29B10CF300E1CD22 /* API */,
 				1A38FA9729B1078800E1CD22 /* MainScreen-Module */,
-				1A704F4929BB71E6000DE061 /* ImageDetail */,
+				1A704F4929BB71E6000DE061 /* ImageDetailScreen-Module */,
 				1A161F0529B5ED9500AF7177 /* CreateImageForm */,
 				1A161F0C29B633CF00AF7177 /* Cells */,
 				1A161F1E29B6ABD300AF7177 /* Extensions */,
@@ -267,14 +269,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		1A704F4929BB71E6000DE061 /* ImageDetail */ = {
+		1A704F4929BB71E6000DE061 /* ImageDetailScreen-Module */ = {
 			isa = PBXGroup;
 			children = (
+				1AD2077B29C1426B00F72182 /* ImageDetailBuilder.swift */,
 				1A704F4A29BB7217000DE061 /* ImageDetailViewController.swift */,
 				1A704F4B29BB7217000DE061 /* ImageDetailViewController.xib */,
 				1A704F4E29BB8BF8000DE061 /* ImageDetailViewModel.swift */,
 			);
-			path = ImageDetail;
+			path = "ImageDetailScreen-Module";
 			sourceTree = "<group>";
 		};
 		1A704F5029BE9854000DE061 /* Petition */ = {
@@ -461,6 +464,7 @@
 				1A38FAA929B2013000E1CD22 /* GetModelsResponse.swift in Sources */,
 				1AAE3FE329B284AA00639CE5 /* AIImage.swift in Sources */,
 				1AD2077A29C1109D00F72182 /* MainBuilder.swift in Sources */,
+				1AD2077C29C1426B00F72182 /* ImageDetailBuilder.swift in Sources */,
 				1A38FA9C29B10D0300E1CD22 /* APIManagerProtocol.swift in Sources */,
 				1AAE3FEB29B4E22C00639CE5 /* ErrorObject.swift in Sources */,
 				1A38FAA529B1FF2E00E1CD22 /* Model.swift in Sources */,
