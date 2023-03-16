@@ -79,7 +79,7 @@ class MainViewController: UIViewController {
         // TODO: Create a Coordinator.
         
         // ViewController.
-        let createImageFormVC = CreateImageFormViewController(viewModel: viewModel)
+        let createImageFormVC = CreateImageFormBuilder.create(viewModel: viewModel)
         
         // NavController.
         let navController = UINavigationController(rootViewController: createImageFormVC)

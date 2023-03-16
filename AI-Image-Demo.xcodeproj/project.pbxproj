@@ -37,6 +37,7 @@
 		1A704F5429BE9873000DE061 /* PetitionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A704F5229BE9873000DE061 /* PetitionTableViewCell.xib */; };
 		1A704F5829BF3E44000DE061 /* PetitionImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A704F5629BF3E44000DE061 /* PetitionImageCollectionViewCell.swift */; };
 		1A704F5929BF3E44000DE061 /* PetitionImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A704F5729BF3E44000DE061 /* PetitionImageCollectionViewCell.xib */; };
+		1A8C038129C389E300DD7CD7 /* CreateImageFormBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8C038029C389E300DD7CD7 /* CreateImageFormBuilder.swift */; };
 		1AAE3FD729B221E000639CE5 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FD629B221E000639CE5 /* Endpoint.swift */; };
 		1AAE3FD929B2221200639CE5 /* EndpointCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FD829B2221200639CE5 /* EndpointCases.swift */; };
 		1AAE3FDD29B2345500639CE5 /* OpenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FDC29B2345500639CE5 /* OpenAI.swift */; };
@@ -99,6 +100,7 @@
 		1A704F5229BE9873000DE061 /* PetitionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetitionTableViewCell.xib; sourceTree = "<group>"; };
 		1A704F5629BF3E44000DE061 /* PetitionImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		1A704F5729BF3E44000DE061 /* PetitionImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetitionImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		1A8C038029C389E300DD7CD7 /* CreateImageFormBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageFormBuilder.swift; sourceTree = "<group>"; };
 		1AAE3FD629B221E000639CE5 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		1AAE3FD829B2221200639CE5 /* EndpointCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointCases.swift; sourceTree = "<group>"; };
 		1AAE3FDC29B2345500639CE5 /* OpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAI.swift; sourceTree = "<group>"; };
@@ -138,13 +140,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A161F0529B5ED9500AF7177 /* CreateImageForm */ = {
+		1A161F0529B5ED9500AF7177 /* CreateImageFormScreen-Module */ = {
 			isa = PBXGroup;
 			children = (
+				1A8C038029C389E300DD7CD7 /* CreateImageFormBuilder.swift */,
 				1A161F0629B5EDBA00AF7177 /* CreateImageFormViewController.swift */,
 				1A161F0729B5EDBA00AF7177 /* CreateImageFormViewController.xib */,
 			);
-			path = CreateImageForm;
+			path = "CreateImageFormScreen-Module";
 			sourceTree = "<group>";
 		};
 		1A161F0C29B633CF00AF7177 /* Cells */ = {
@@ -206,7 +209,7 @@
 				1A38FA9A29B10CF300E1CD22 /* API */,
 				1A38FA9729B1078800E1CD22 /* MainScreen-Module */,
 				1A704F4929BB71E6000DE061 /* ImageDetailScreen-Module */,
-				1A161F0529B5ED9500AF7177 /* CreateImageForm */,
+				1A161F0529B5ED9500AF7177 /* CreateImageFormScreen-Module */,
 				1A161F0C29B633CF00AF7177 /* Cells */,
 				1A161F1E29B6ABD300AF7177 /* Extensions */,
 			);
@@ -466,6 +469,7 @@
 				1AD2077A29C1109D00F72182 /* MainBuilder.swift in Sources */,
 				1AD2077C29C1426B00F72182 /* ImageDetailBuilder.swift in Sources */,
 				1A38FA9C29B10D0300E1CD22 /* APIManagerProtocol.swift in Sources */,
+				1A8C038129C389E300DD7CD7 /* CreateImageFormBuilder.swift in Sources */,
 				1AAE3FEB29B4E22C00639CE5 /* ErrorObject.swift in Sources */,
 				1A38FAA529B1FF2E00E1CD22 /* Model.swift in Sources */,
 			);
