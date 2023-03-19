@@ -204,7 +204,7 @@
 				1A38FA6B29B102EC00E1CD22 /* Assets.xcassets */,
 				1A38FA6D29B102EC00E1CD22 /* LaunchScreen.storyboard */,
 				1A38FA7029B102EC00E1CD22 /* Info.plist */,
-				1A38FAA129B16A5C00E1CD22 /* Model */,
+				1A38FAA129B16A5C00E1CD22 /* Models */,
 				1A161F1929B6A68900AF7177 /* Manager */,
 				1A38FA9A29B10CF300E1CD22 /* API */,
 				1A38FA9729B1078800E1CD22 /* MainScreen-Module */,
@@ -257,7 +257,7 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		1A38FAA129B16A5C00E1CD22 /* Model */ = {
+		1A38FAA129B16A5C00E1CD22 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				1A38FAA829B2013000E1CD22 /* GetModelsResponse.swift */,
@@ -269,7 +269,7 @@
 				1AAE3FEA29B4E22C00639CE5 /* ErrorObject.swift */,
 				1A161F1229B640B500AF7177 /* Petition.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		1A704F4929BB71E6000DE061 /* ImageDetailScreen-Module */ = {
