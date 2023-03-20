@@ -26,51 +26,50 @@ class PetitionTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     
-    var petition: Petition = Petition() {
+    var petitionIsLoading: Bool = false {
         didSet {
-            // Technology Name.
-            technologyNameLabel.text = "OpenAI - DALL·E"
-            
-            // Activity Indicator.
-            if petition.imagesData.isEmpty && petition.errorDescription == nil {
+            if petitionIsLoading {
                 activityIndicator.isHidden = false
                 activityIndicator.startAnimating()
             } else {
                 activityIndicator.isHidden = true
                 activityIndicator.stopAnimating()
             }
-            
-            // Error description.
-            if let errorDescription = petition.errorDescription {
-                errorDescriptionLabel.isHidden = false
-                errorDescriptionLabel.text = errorDescription
-            } else {
-                errorDescriptionLabel.isHidden = true
-            }
-            
-            // Page Control.
-            if let imagesData = petition.getDataArray() {
-                if imagesData.count > 1 {
-                    pageControl.isHidden = false
-                    pageControl.numberOfPages = imagesData.count
-                    pageControlCurrentPage = 0
-                } else {
-                    pageControl.isHidden = true
-                }
+        }
+    }
+    var petitionImagesData: [Data] = [] {
+        didSet {
+            if petitionImagesData.count > 1 {
+                pageControl.isHidden = false
+                pageControl.numberOfPages = petitionImagesData.count
+                pageControlCurrentPage = 0
             } else {
                 pageControl.isHidden = true
-            }
-            
-            // Description.
-            if let imageDescription = petition.imageDescription {
-                petitionDescriptionLabel.text = imageDescription
-            } else {
-                petitionDescriptionLabel.text = ""
             }
             
             collectionView.reloadData()
         }
     }
+    var petitionHasErrorDescription: Bool = false {
+        didSet {
+            if petitionHasErrorDescription {
+                errorDescriptionLabel.isHidden = false
+            } else {
+                errorDescriptionLabel.isHidden = true
+            }
+        }
+    }
+    var petitionErrorDescription: String = "" {
+        didSet {
+            errorDescriptionLabel.text = petitionErrorDescription
+        }
+    }
+    var petitionDescription: String = "" {
+        didSet {
+            petitionDescriptionLabel.text = petitionDescription
+        }
+    }
+    
     private var pageControlCurrentPage: Int = 0 {
         didSet {
             pageControl.currentPage = pageControlCurrentPage
@@ -85,6 +84,9 @@ class PetitionTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         selectionStyle = .none
+        
+        // Technology Name.
+        technologyNameLabel.text = "OpenAI - DALL·E"
         
         setupCollectionView()
         setupBottomLineImageView()
@@ -154,21 +156,13 @@ extension PetitionTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let imagesData = petition.getDataArray() {
-            return imagesData.count
-        } else {
-            return 0
-        }
+        return petitionImagesData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PetitionImageCollectionViewCell", for: indexPath) as! PetitionImageCollectionViewCell
         
-        if let imagesData = petition.getDataArray() {
-            cell.petitionImageData = imagesData[indexPath.row]
-        } else {
-            cell.petitionImageData = nil
-        }
+        cell.petitionImageData = petitionImagesData[indexPath.row]
         
         return cell
     }

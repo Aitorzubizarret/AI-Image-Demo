@@ -20,14 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        // Create the MainViewController using MainBuilder.
-        let mainVC = MainBuilder.create()
+        // Create the PetitionsViewController.
+        let petitionsViewController = PetitionsRouter.createModule()
         
-        // Create the Navigation Controller.
-        let navController = UINavigationController()
-        navController.viewControllers = [mainVC]
-        
-        window?.rootViewController = navController
+        window?.rootViewController = petitionsViewController
         window?.makeKeyAndVisible()
     }
 

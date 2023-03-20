@@ -15,6 +15,11 @@
 		1A161F1B29B6A6C700AF7177 /* RealmManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A161F1A29B6A6C700AF7177 /* RealmManagerProtocol.swift */; };
 		1A161F1D29B6A6D100AF7177 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A161F1C29B6A6D100AF7177 /* RealmManager.swift */; };
 		1A161F2029B6ABE900AF7177 /* Results-Exxtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A161F1F29B6ABE900AF7177 /* Results-Exxtension.swift */; };
+		1A2E8D7629C7C69D00460C16 /* PetitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E8D7529C7C69D00460C16 /* PetitionsViewController.swift */; };
+		1A2E8D7929C7C9D600460C16 /* PetitionsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E8D7829C7C9D600460C16 /* PetitionsContract.swift */; };
+		1A2E8D7B29C7C9EE00460C16 /* PetitionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E8D7A29C7C9EE00460C16 /* PetitionsPresenter.swift */; };
+		1A2E8D7D29C7CA0300460C16 /* PetitionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E8D7C29C7CA0300460C16 /* PetitionsInteractor.swift */; };
+		1A2E8D7F29C7CA1100460C16 /* PetitionsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E8D7E29C7CA1100460C16 /* PetitionsRouter.swift */; };
 		1A38FA6329B102EB00E1CD22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA6229B102EB00E1CD22 /* AppDelegate.swift */; };
 		1A38FA6529B102EB00E1CD22 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA6429B102EB00E1CD22 /* SceneDelegate.swift */; };
 		1A38FA6C29B102EC00E1CD22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A38FA6B29B102EC00E1CD22 /* Assets.xcassets */; };
@@ -22,8 +27,6 @@
 		1A38FA7A29B102EC00E1CD22 /* AI_Image_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA7929B102EC00E1CD22 /* AI_Image_DemoTests.swift */; };
 		1A38FA8429B102EC00E1CD22 /* AI_Image_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA8329B102EC00E1CD22 /* AI_Image_DemoUITests.swift */; };
 		1A38FA8629B102EC00E1CD22 /* AI_Image_DemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA8529B102EC00E1CD22 /* AI_Image_DemoUITestsLaunchTests.swift */; };
-		1A38FA9429B1069C00E1CD22 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA9229B1069C00E1CD22 /* MainViewController.swift */; };
-		1A38FA9529B1069C00E1CD22 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A38FA9329B1069C00E1CD22 /* MainViewController.xib */; };
 		1A38FA9929B109BE00E1CD22 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA9829B109BE00E1CD22 /* MainViewModel.swift */; };
 		1A38FA9C29B10D0300E1CD22 /* APIManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA9B29B10D0300E1CD22 /* APIManagerProtocol.swift */; };
 		1A38FA9E29B10D4500E1CD22 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38FA9D29B10D4500E1CD22 /* APIManager.swift */; };
@@ -46,7 +49,6 @@
 		1AAE3FE729B4B45500639CE5 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FE629B4B45500639CE5 /* CustomError.swift */; };
 		1AAE3FE929B4E1EF00639CE5 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FE829B4E1EF00639CE5 /* ErrorResponse.swift */; };
 		1AAE3FEB29B4E22C00639CE5 /* ErrorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE3FEA29B4E22C00639CE5 /* ErrorObject.swift */; };
-		1AD2077A29C1109D00F72182 /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2077929C1109D00F72182 /* MainBuilder.swift */; };
 		1AD2077C29C1426B00F72182 /* ImageDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2077B29C1426B00F72182 /* ImageDetailBuilder.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,11 @@
 		1A161F1A29B6A6C700AF7177 /* RealmManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerProtocol.swift; sourceTree = "<group>"; };
 		1A161F1C29B6A6D100AF7177 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		1A161F1F29B6ABE900AF7177 /* Results-Exxtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results-Exxtension.swift"; sourceTree = "<group>"; };
+		1A2E8D7529C7C69D00460C16 /* PetitionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsViewController.swift; sourceTree = "<group>"; };
+		1A2E8D7829C7C9D600460C16 /* PetitionsContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsContract.swift; sourceTree = "<group>"; };
+		1A2E8D7A29C7C9EE00460C16 /* PetitionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsPresenter.swift; sourceTree = "<group>"; };
+		1A2E8D7C29C7CA0300460C16 /* PetitionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsInteractor.swift; sourceTree = "<group>"; };
+		1A2E8D7E29C7CA1100460C16 /* PetitionsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsRouter.swift; sourceTree = "<group>"; };
 		1A38FA5F29B102EB00E1CD22 /* AI-Image-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI-Image-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A38FA6229B102EB00E1CD22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A38FA6429B102EB00E1CD22 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,8 +92,6 @@
 		1A38FA7F29B102EC00E1CD22 /* AI-Image-DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AI-Image-DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A38FA8329B102EC00E1CD22 /* AI_Image_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI_Image_DemoUITests.swift; sourceTree = "<group>"; };
 		1A38FA8529B102EC00E1CD22 /* AI_Image_DemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI_Image_DemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		1A38FA9229B1069C00E1CD22 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		1A38FA9329B1069C00E1CD22 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		1A38FA9829B109BE00E1CD22 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		1A38FA9B29B10D0300E1CD22 /* APIManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerProtocol.swift; sourceTree = "<group>"; };
 		1A38FA9D29B10D4500E1CD22 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -109,7 +114,6 @@
 		1AAE3FE629B4B45500639CE5 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		1AAE3FE829B4E1EF00639CE5 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		1AAE3FEA29B4E22C00639CE5 /* ErrorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorObject.swift; sourceTree = "<group>"; };
-		1AD2077929C1109D00F72182 /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
 		1AD2077B29C1426B00F72182 /* ImageDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,15 +152,6 @@
 				1A161F0729B5EDBA00AF7177 /* CreateImageFormViewController.xib */,
 			);
 			path = CreatePetition;
-			sourceTree = "<group>";
-		};
-		1A161F0C29B633CF00AF7177 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				1A704F5029BE9854000DE061 /* Petition */,
-				1A704F5529BF3E24000DE061 /* PetitionImage */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		1A161F1929B6A68900AF7177 /* Realm */ = {
@@ -212,6 +207,33 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
+		1A2E8D7729C7C8F400460C16 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1A2E8D8029C7CD5200460C16 /* Petition */,
+				1A2E8D8129C7CD6400460C16 /* PetitionImage */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		1A2E8D8029C7CD5200460C16 /* Petition */ = {
+			isa = PBXGroup;
+			children = (
+				1A704F5129BE9873000DE061 /* PetitionTableViewCell.swift */,
+				1A704F5229BE9873000DE061 /* PetitionTableViewCell.xib */,
+			);
+			path = Petition;
+			sourceTree = "<group>";
+		};
+		1A2E8D8129C7CD6400460C16 /* PetitionImage */ = {
+			isa = PBXGroup;
+			children = (
+				1A704F5629BF3E44000DE061 /* PetitionImageCollectionViewCell.swift */,
+				1A704F5729BF3E44000DE061 /* PetitionImageCollectionViewCell.xib */,
+			);
+			path = PetitionImage;
+			sourceTree = "<group>";
+		};
 		1A38FA5629B102EB00E1CD22 = {
 			isa = PBXGroup;
 			children = (
@@ -242,7 +264,6 @@
 				1A38FAA129B16A5C00E1CD22 /* Entities */,
 				1A161F1929B6A68900AF7177 /* Realm */,
 				1A38FA9A29B10CF300E1CD22 /* API */,
-				1A161F0C29B633CF00AF7177 /* Cells */,
 				1A161F1E29B6ABD300AF7177 /* Extensions */,
 			);
 			path = "AI-Image-Demo";
@@ -268,9 +289,12 @@
 		1A38FA9729B1078800E1CD22 /* Petitions */ = {
 			isa = PBXGroup;
 			children = (
-				1AD2077929C1109D00F72182 /* MainBuilder.swift */,
-				1A38FA9229B1069C00E1CD22 /* MainViewController.swift */,
-				1A38FA9329B1069C00E1CD22 /* MainViewController.xib */,
+				1A2E8D7829C7C9D600460C16 /* PetitionsContract.swift */,
+				1A2E8D7529C7C69D00460C16 /* PetitionsViewController.swift */,
+				1A2E8D7729C7C8F400460C16 /* Cells */,
+				1A2E8D7A29C7C9EE00460C16 /* PetitionsPresenter.swift */,
+				1A2E8D7C29C7CA0300460C16 /* PetitionsInteractor.swift */,
+				1A2E8D7E29C7CA1100460C16 /* PetitionsRouter.swift */,
 				1A38FA9829B109BE00E1CD22 /* MainViewModel.swift */,
 			);
 			path = Petitions;
@@ -313,24 +337,6 @@
 				1A704F4E29BB8BF8000DE061 /* ImageDetailViewModel.swift */,
 			);
 			path = PetitionDetail;
-			sourceTree = "<group>";
-		};
-		1A704F5029BE9854000DE061 /* Petition */ = {
-			isa = PBXGroup;
-			children = (
-				1A704F5129BE9873000DE061 /* PetitionTableViewCell.swift */,
-				1A704F5229BE9873000DE061 /* PetitionTableViewCell.xib */,
-			);
-			path = Petition;
-			sourceTree = "<group>";
-		};
-		1A704F5529BF3E24000DE061 /* PetitionImage */ = {
-			isa = PBXGroup;
-			children = (
-				1A704F5629BF3E44000DE061 /* PetitionImageCollectionViewCell.swift */,
-				1A704F5729BF3E44000DE061 /* PetitionImageCollectionViewCell.xib */,
-			);
-			path = PetitionImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,7 +455,6 @@
 				1A704F5929BF3E44000DE061 /* PetitionImageCollectionViewCell.xib in Resources */,
 				1A38FA6F29B102EC00E1CD22 /* LaunchScreen.storyboard in Resources */,
 				1A704F5429BE9873000DE061 /* PetitionTableViewCell.xib in Resources */,
-				1A38FA9529B1069C00E1CD22 /* MainViewController.xib in Resources */,
 				1A38FA6C29B102EC00E1CD22 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,12 +483,13 @@
 				1A38FA9E29B10D4500E1CD22 /* APIManager.swift in Sources */,
 				1AAE3FD929B2221200639CE5 /* EndpointCases.swift in Sources */,
 				1AAE3FE529B284BC00639CE5 /* CreateImageResponse.swift in Sources */,
-				1A38FA9429B1069C00E1CD22 /* MainViewController.swift in Sources */,
 				1A161F1329B640B500AF7177 /* Petition.swift in Sources */,
 				1AAE3FDD29B2345500639CE5 /* OpenAI.swift in Sources */,
 				1A704F5329BE9873000DE061 /* PetitionTableViewCell.swift in Sources */,
+				1A2E8D7929C7C9D600460C16 /* PetitionsContract.swift in Sources */,
 				1A704F4C29BB7217000DE061 /* ImageDetailViewController.swift in Sources */,
 				1AAE3FE729B4B45500639CE5 /* CustomError.swift in Sources */,
+				1A2E8D7B29C7C9EE00460C16 /* PetitionsPresenter.swift in Sources */,
 				1A161F0829B5EDBA00AF7177 /* CreateImageFormViewController.swift in Sources */,
 				1A161F2029B6ABE900AF7177 /* Results-Exxtension.swift in Sources */,
 				1A38FA6329B102EB00E1CD22 /* AppDelegate.swift in Sources */,
@@ -493,12 +499,14 @@
 				1AAE3FD729B221E000639CE5 /* Endpoint.swift in Sources */,
 				1A704F4F29BB8BF8000DE061 /* ImageDetailViewModel.swift in Sources */,
 				1A161F1D29B6A6D100AF7177 /* RealmManager.swift in Sources */,
+				1A2E8D7D29C7CA0300460C16 /* PetitionsInteractor.swift in Sources */,
 				1A38FAA729B1FF6000E1CD22 /* Permission.swift in Sources */,
 				1A38FA9929B109BE00E1CD22 /* MainViewModel.swift in Sources */,
 				1A161F1B29B6A6C700AF7177 /* RealmManagerProtocol.swift in Sources */,
 				1A38FAA929B2013000E1CD22 /* GetModelsResponse.swift in Sources */,
+				1A2E8D7629C7C69D00460C16 /* PetitionsViewController.swift in Sources */,
 				1AAE3FE329B284AA00639CE5 /* AIImage.swift in Sources */,
-				1AD2077A29C1109D00F72182 /* MainBuilder.swift in Sources */,
+				1A2E8D7F29C7CA1100460C16 /* PetitionsRouter.swift in Sources */,
 				1AD2077C29C1426B00F72182 /* ImageDetailBuilder.swift in Sources */,
 				1A38FA9C29B10D0300E1CD22 /* APIManagerProtocol.swift in Sources */,
 				1A8C038129C389E300DD7CD7 /* CreateImageFormBuilder.swift in Sources */,
