@@ -13,20 +13,24 @@ class PetitionsInteractor {
     // MARK: - Properties (from PresenterToInteractorPetitionsProtocol)
     
     var presenter: InteractorToPresenterPetitionsProtocol?
+    var realmManager: InteractorToRealmManagerPetitionsProtocol? {
+        didSet {
+            guard let _ = realmManager else { return }
+            
+            setupSubscriptions()
+        }
+    }
     
     // MARK: Properties
     
-    private var realmManager = RealmManager()
     private var subscribedTo: [AnyCancellable] = []
     private var petitions: [Petition] = []
     
     // MARK: - Methods
     
-    init() {
-        setupSubscriptions()
-    }
-    
     private func setupSubscriptions() {
+        guard let realmManager = realmManager else { return }
+        
         realmManager.petitions.sink { receiveCompletion in
             print("Receive Completion")
         } receiveValue: { [weak self] petitions in
@@ -46,6 +50,8 @@ class PetitionsInteractor {
 extension PetitionsInteractor: PresenterToInteractorPetitionsProtocol {
     
     func loadPetitions() {
+        guard let realmManager = realmManager else { return }
+        
         realmManager.getPetitions()
     }
     

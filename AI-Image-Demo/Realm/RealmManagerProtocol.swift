@@ -15,11 +15,8 @@ protocol RealmManagerProtocol {
     
     var realm: Realm { get set }
     
-    var petitions: PassthroughSubject<[Petition], Error> { get set }
-    
     // MARK: - Methods
     
-    func getPetitions()
     func addPetition(_ petition: Petition)
     func updatePetitionImageData(_ imageData: [Data])
     func updatePetitionErrorDescription(_ errorDescription: String)

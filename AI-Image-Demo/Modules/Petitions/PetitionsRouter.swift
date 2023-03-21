@@ -18,6 +18,9 @@ extension PetitionsRouter: PresenterToRouterPetitionsProtocol {
         // Presenter.
         let presenter: ViewToPresenterPetitionsProtocol & InteractorToPresenterPetitionsProtocol = PetitionsPresenter()
         
+        // Realm Manager.
+        let realmManager: InteractorToRealmManagerPetitionsProtocol = RealmManager()
+        
         // Dependency injection to View.
         viewController.presenter = presenter
         
@@ -28,6 +31,7 @@ extension PetitionsRouter: PresenterToRouterPetitionsProtocol {
         
         // Dependency injection to Interactor.
         viewController.presenter?.interactor?.presenter = presenter
+        viewController.presenter?.interactor?.realmManager = realmManager
         
         // Navigation Controller.
         let navController = UINavigationController(rootViewController: viewController)

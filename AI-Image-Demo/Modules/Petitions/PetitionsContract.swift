@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 // MARK: - View Input (View -> Presenter)
 
@@ -51,6 +52,7 @@ protocol InteractorToPresenterPetitionsProtocol {
 protocol PresenterToInteractorPetitionsProtocol {
     
     var presenter: InteractorToPresenterPetitionsProtocol? { get set }
+    var realmManager: InteractorToRealmManagerPetitionsProtocol? { get set }
     
     func loadPetitions()
     func numberOfPetitions() -> Int
@@ -60,6 +62,15 @@ protocol PresenterToInteractorPetitionsProtocol {
     func petitionErrorDescription(at index: Int) -> String
     func petitionDescription(at index: Int) -> String
     
+}
+
+// MARK: - Interactor Ouput (Interactor -> RealmManager)
+
+protocol InteractorToRealmManagerPetitionsProtocol {
+    
+    var petitions: PassthroughSubject<[Petition], Error> { get set }
+    
+    func getPetitions()
     
 }
 

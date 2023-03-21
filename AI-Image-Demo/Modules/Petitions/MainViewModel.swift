@@ -61,7 +61,7 @@ final class MainViewModel {
             case .failure(let error):
                 DispatchQueue.main.async { [weak self] in
                     self?.realmManager.updatePetitionErrorDescription(error.localizedDescription)
-                    self?.realmManager.getPetitions()
+//                    self?.realmManager.getPetitions()
                 }
             case .finished:
                 print("")
@@ -74,16 +74,16 @@ final class MainViewModel {
                 }
                 DispatchQueue.main.async {
                     self?.realmManager.updatePetitionImageData(imagesData)
-                    self?.realmManager.getPetitions()
+//                    self?.realmManager.getPetitions()
                 }
             }
         }.store(in: &subscribedTo)
         
-        realmManager.petitions.sink { receiveCompletion in
-            print("Receive completion")
-        } receiveValue: { [weak self] receivedPetitions in
-            self?.petitions.send(receivedPetitions)
-        }.store(in: &subscribedTo)
+//        realmManager.petitions.sink { receiveCompletion in
+//            print("Receive completion")
+//        } receiveValue: { [weak self] receivedPetitions in
+//            self?.petitions.send(receivedPetitions)
+//        }.store(in: &subscribedTo)
     }
     
     func getModels() {
@@ -95,7 +95,7 @@ final class MainViewModel {
     }
     
     func getPetitions() {
-        realmManager.getPetitions()
+//        realmManager.getPetitions()
     }
     
     func createImage(description: String, size: String, quantity: Int) {
@@ -105,7 +105,7 @@ final class MainViewModel {
         
         // Save it in RealmManager.
         realmManager.addPetition(petition)
-        realmManager.getPetitions()
+//        realmManager.getPetitions()
         
         // Call the API to create it in the server and (if no problem) received it.
         apiManager.createImage(description: description, size: size, quantity: quantity)
