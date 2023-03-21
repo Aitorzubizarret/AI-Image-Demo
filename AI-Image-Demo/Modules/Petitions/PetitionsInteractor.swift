@@ -88,4 +88,8 @@ extension PetitionsInteractor: PresenterToInteractorPetitionsProtocol {
         return petitions[index].imageDescription ?? ""
     }
     
+    func petitionId(at index: Int) -> String {
+        return petitions[index].id
+    }
+    
 }

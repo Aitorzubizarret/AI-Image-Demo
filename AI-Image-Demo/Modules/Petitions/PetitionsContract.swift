@@ -25,6 +25,8 @@ protocol ViewToPresenterPetitionsProtocol {
     func petitionErrorDescription(at index: Int) -> String
     func petitionDescription(at index: Int) -> String
     
+    func didSelectRowAt(_ index: Int)
+    
 }
 
 // MARK: - View Output (Presenter -> View)
@@ -61,6 +63,7 @@ protocol PresenterToInteractorPetitionsProtocol {
     func petitionHasErroDescription(at index: Int) -> Bool
     func petitionErrorDescription(at index: Int) -> String
     func petitionDescription(at index: Int) -> String
+    func petitionId(at index: Int) -> String
     
 }
 
@@ -79,5 +82,7 @@ protocol InteractorToRealmManagerPetitionsProtocol {
 protocol PresenterToRouterPetitionsProtocol {
     
     static  func createModule() -> UINavigationController
+    
+    func showPetitionDetail(on view: PresenterToViewPetitionsProtocol, petitionId: String)
     
 }

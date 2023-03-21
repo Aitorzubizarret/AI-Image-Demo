@@ -47,6 +47,15 @@ extension PetitionsPresenter: ViewToPresenterPetitionsProtocol {
         return interactor?.petitionDescription(at: index) ?? ""
     }
     
+    func didSelectRowAt(_ index: Int) {
+        let petitionId: String? = interactor?.petitionId(at: index)
+        
+        guard let view = view,
+              let petitionId = petitionId else { return }
+        
+        router?.showPetitionDetail(on: view, petitionId: petitionId)
+    }
+    
 }
 
 extension PetitionsPresenter: InteractorToPresenterPetitionsProtocol {

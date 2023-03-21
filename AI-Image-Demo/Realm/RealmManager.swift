@@ -19,6 +19,10 @@ final class RealmManager {
     
     var petitions: PassthroughSubject<[Petition], Error> = PassthroughSubject<[Petition], Error>()
     
+    // MARK: - Properties (from InteractorToRealmManagerPetitionDetailProtocol)
+    
+    var petition: PassthroughSubject<Petition, Error> = PassthroughSubject<Petition, Error>()
+    
     // MARK: - Methods
     
     init() {
@@ -80,6 +84,22 @@ extension RealmManager: InteractorToRealmManagerPetitionsProtocol {
     func getPetitions() {
         let allPetitions = realm.objects(Petition.self).sorted(byKeyPath: "date", ascending: false)
         petitions.send(allPetitions.toArray())
+    }
+    
+}
+
+// MARK: - Interactor to RealmManager Petition Detail Protocol
+
+extension RealmManager: InteractorToRealmManagerPetitionDetailProtocol {
+    
+    func getPetition(with id: String) {
+        let foundPetitions = realm.objects(Petition.self).filter("id = '\(id)'")
+        if foundPetitions.count == 1,
+           let foundPetition = foundPetitions.first {
+            petition.send(foundPetition)
+        } else {
+            // TODO: Send error.
+        }
     }
     
 }

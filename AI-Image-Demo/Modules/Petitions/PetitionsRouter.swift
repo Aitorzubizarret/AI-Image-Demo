@@ -39,4 +39,12 @@ extension PetitionsRouter: PresenterToRouterPetitionsProtocol {
         return navController
     }
     
+    func showPetitionDetail(on view: PresenterToViewPetitionsProtocol, petitionId: String) {
+        // View controller.
+        let petitionDetailViewController = PetitionDetailRouter.createModule(with: petitionId)
+        
+        let viewController = view as! PetitionsViewController
+        viewController.navigationController?.show(petitionDetailViewController, sender: true)
+    }
+    
 }

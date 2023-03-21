@@ -24,7 +24,6 @@ class PetitionsViewController: UIViewController {
         
         setupTableView()
         
-        print("View - viewDidLoad")
         presenter?.viewDidLoad()
     }
     
@@ -48,7 +47,13 @@ class PetitionsViewController: UIViewController {
 
 // MARK: - UITableView Delegate
 
-extension PetitionsViewController: UITableViewDelegate {}
+extension PetitionsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.didSelectRowAt(indexPath.row)
+    }
+    
+}
 
 // MARK: - UITableView Data Source
 
