@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PetitionsRouter {}
+final class PetitionsRouter {}
 
 extension PetitionsRouter: PresenterToRouterPetitionsProtocol {
     

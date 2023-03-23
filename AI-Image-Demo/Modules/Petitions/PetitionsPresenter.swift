@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PetitionsPresenter {
+final class PetitionsPresenter {
     
     // MARK: - Properties (from ViewToPresenterPetitionsProtocol)
     

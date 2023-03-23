@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PetitionsViewController: UIViewController {
+final class PetitionsViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -83,8 +83,6 @@ extension PetitionsViewController: UITableViewDataSource {
 extension PetitionsViewController: PresenterToViewPetitionsProtocol {
     
     func onGetPetitionsSuccess() {
-        print("View - onGetPetitionsSuccess")
-        
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
         }

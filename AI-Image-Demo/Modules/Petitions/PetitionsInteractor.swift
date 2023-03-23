@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class PetitionsInteractor {
+final class PetitionsInteractor {
     
     // MARK: - Properties (from PresenterToInteractorPetitionsProtocol)
     
@@ -39,7 +39,6 @@ class PetitionsInteractor {
     }
     
     private func petitionsReceived(petitions: [Petition]) {
-        print("Interactor - petitionsReceived")
         self.petitions = petitions
         
         presenter?.fetchPetitionsSuccess()

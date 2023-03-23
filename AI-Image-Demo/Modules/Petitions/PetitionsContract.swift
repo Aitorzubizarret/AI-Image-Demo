@@ -8,8 +8,21 @@
 import UIKit
 import Combine
 
-// MARK: - View Input (View -> Presenter)
+// MARK: - View
 
+/// View Output (Presenter -> View)
+protocol PresenterToViewPetitionsProtocol {
+    
+    var presenter: ViewToPresenterPetitionsProtocol? { get set }
+    
+    func onGetPetitionsSuccess()
+    func onGetPetitionsFailure(errorDescription: String)
+    
+}
+
+// MARK: - Presenter
+
+/// View Input (View -> Presenter)
 protocol ViewToPresenterPetitionsProtocol {
     
     var view: PresenterToViewPetitionsProtocol? { get set }
@@ -29,19 +42,7 @@ protocol ViewToPresenterPetitionsProtocol {
     
 }
 
-// MARK: - View Output (Presenter -> View)
-
-protocol PresenterToViewPetitionsProtocol {
-    
-    var presenter: ViewToPresenterPetitionsProtocol? { get set }
-    
-    func onGetPetitionsSuccess()
-    func onGetPetitionsFailure(errorDescription: String)
-    
-}
-
-// MARK: - Interactor Output (Interactor -> Presenter)
-
+/// Interactor Input (Interactor -> Presenter)
 protocol InteractorToPresenterPetitionsProtocol {
     
     func fetchPetitionsSuccess()
@@ -49,9 +50,10 @@ protocol InteractorToPresenterPetitionsProtocol {
     
 }
 
-// MARK: - Interactor Input (Presenter -> Interactor)
+// MARK: - Interactor
 
-protocol PresenterToInteractorPetitionsProtocol {
+/// Interactor Output (Presenter -> Interactor)
+protocol PresenterToInteractorPetitionsProtocol: AnyObject {
     
     var presenter: InteractorToPresenterPetitionsProtocol? { get set }
     var realmManager: InteractorToRealmManagerPetitionsProtocol? { get set }
@@ -67,22 +69,24 @@ protocol PresenterToInteractorPetitionsProtocol {
     
 }
 
-// MARK: - Interactor Ouput (Interactor -> RealmManager)
+// MARK: - Router
 
-protocol InteractorToRealmManagerPetitionsProtocol {
-    
-    var petitions: PassthroughSubject<[Petition], Error> { get set }
-    
-    func getPetitions()
-    
-}
-
-// MARK: - Router Output (Presenter -> Router)
-
+/// Router Output (Presenter -> Router)
 protocol PresenterToRouterPetitionsProtocol {
     
     static  func createModule() -> UINavigationController
     
     func showPetitionDetail(on view: PresenterToViewPetitionsProtocol, petitionId: String)
+    
+}
+
+// MARK: - Realm Manager
+
+/// RealmManager Ouput (Interactor -> RealmManager)
+protocol InteractorToRealmManagerPetitionsProtocol {
+    
+    var petitions: PassthroughSubject<[Petition], Error> { get set }
+    
+    func getPetitions()
     
 }
