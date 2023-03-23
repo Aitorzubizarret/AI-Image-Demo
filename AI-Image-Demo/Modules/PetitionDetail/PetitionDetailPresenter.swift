@@ -15,15 +15,19 @@ class PetitionDetailPresenter {
     var interactor: PresenterToInteractorPetitionDetailProtocol?
     var router: PresenterToRouterPetitionDetailProtocol?
     
-    var petitionId: String?
+    var petitionId: String
+    
+    // MARK: - Methods (from ViewToPresenterPetitionDetailProtocol)
+    
+    required init(petitionId: String) {
+        self.petitionId = petitionId
+    }
     
 }
 
 extension PetitionDetailPresenter: ViewToPresenterPetitionDetailProtocol {
     
     func viewDidLoad() {
-        guard let petitionId = petitionId else { return }
-        
         interactor?.getPetition(with: petitionId)
     }
     

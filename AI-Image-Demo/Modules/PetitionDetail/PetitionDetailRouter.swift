@@ -16,7 +16,7 @@ extension PetitionDetailRouter: PresenterToRouterPetitionDetailProtocol {
         let viewController = PetitionDetailViewController()
 
         // Presenter.
-        let presenter: ViewToPresenterPetitionDetailProtocol & InteractorToPresenterPetitionDetailProtocol = PetitionDetailPresenter()
+        let presenter: ViewToPresenterPetitionDetailProtocol & InteractorToPresenterPetitionDetailProtocol = PetitionDetailPresenter(petitionId: petitionId)
 
         // Realm Manager.
         let realmManager: InteractorToRealmManagerPetitionDetailProtocol = RealmManager()
@@ -28,7 +28,6 @@ extension PetitionDetailRouter: PresenterToRouterPetitionDetailProtocol {
         viewController.presenter?.view = viewController
         viewController.presenter?.interactor = PetitionDetailInteractor()
         viewController.presenter?.router = PetitionDetailRouter()
-        viewController.presenter?.petitionId = petitionId // The ID of the selected petition that will be searched in Realm and displayed in the view.
 
         // Dependency injection to Interactor.
         viewController.presenter?.interactor?.presenter = presenter

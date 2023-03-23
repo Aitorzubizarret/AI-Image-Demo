@@ -29,7 +29,9 @@ protocol ViewToPresenterPetitionDetailProtocol {
     var interactor: PresenterToInteractorPetitionDetailProtocol? { get set }
     var router: PresenterToRouterPetitionDetailProtocol? { get set }
     
-    var petitionId: String? { get set }
+    var petitionId: String { get set }
+    
+    init(petitionId: String)
     
     func viewDidLoad()
     
